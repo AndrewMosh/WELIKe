@@ -1,0 +1,35 @@
+nav {
+  background-color: #5288bd;
+  color: white;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-height: 65px;
+  margin: 0 40px 0 60px;
+}
+ul {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+ul li {
+  list-style: none;
+  margin: 10px;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+ul li:hover {
+  box-shadow: 0 0 3px #e2f1f6;
+  border-radius: 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.logo span {
+  font-size: 30px;
+}
