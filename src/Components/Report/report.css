@@ -1,0 +1,65 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e2f1f6;
+  padding: 30px;
+  width: 450px;
+  border-radius: 10px;
+}
+.report {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 50px 0 100px 0;
+  gap: 100px;
+}
+.report img {
+  max-width: 100%;
+}
+form input {
+  margin: 10px;
+  width: 280px;
+  border: none;
+  height: 40px;
+  border-radius: 5px;
+}
+form select {
+  border: none;
+  margin: 10px;
+  width: 280px;
+  height: 40px;
+}
+
+form label {
+  text-align: center;
+}
+form h2 {
+  color: #2b425b;
+  padding-bottom: 20px;
+  margin: 0;
+}
+
+form button {
+  width: 100px;
+  height: 40px;
+  color: white;
+  background-color: #3a6da0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  form {
+    width: 250px;
+  }
+  form input {
+    width: 270px;
+  }
+  form select {
+    width: 270px;
+  }
+}

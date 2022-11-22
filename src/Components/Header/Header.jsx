@@ -7,15 +7,9 @@ const Header = () => {
     <nav>
       <div className="container">
         <div className="logo">
-          <img width="50px" height="50px" src={logo} alt="logo" />
+          <img width="40px" height="40px" src={logo} alt="logo" />
           <span>Velik</span>
         </div>
-        <ul>
-          <li>сообщить о краже</li>
-          <li>сотрудники</li>
-          <li>войти</li>
-          <li>регистрация</li>
-        </ul>
       </div>
     </nav>
   );

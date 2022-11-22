@@ -1,0 +1,12 @@
+footer {
+  background-color: #5288bd;
+  color: white;
+  max-height: 55px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+footer div {
+  padding: 15px;
+  max-width: 1440px;
+}

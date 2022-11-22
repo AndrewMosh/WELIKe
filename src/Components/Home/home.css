@@ -1,0 +1,37 @@
+.home {
+  text-align: center;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.ride {
+  max-width: 90%;
+}
+
+.blob {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px;
+  gap: 10px;
+  margin-bottom: 60px;
+}
+.blob div {
+  width: 250px;
+  height: auto;
+  padding: 30px;
+  background-color: #eaf1f9;
+  border-radius: 20px;
+  text-align: left;
+}
+.blob span {
+  color: #3a6da0;
+}
+
+.blob img {
+  width: 80px;
+  height: 80px;
+  align-self: center;
+}
