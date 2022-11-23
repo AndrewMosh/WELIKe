@@ -1,0 +1,60 @@
+.detailContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  min-width: 100%;
+  padding: 50px;
+  color: white;
+  box-shadow: 0 0 7px 4px #9dccf1;
+  column-gap: 50px;
+  background-color: #406d9a;
+  margin: 100px 0 150px 0;
+}
+
+.cancel {
+  border: none;
+  background-color: rgba(255, 0, 0, 0.76);
+  color: white;
+  width: 100px;
+  height: 40px;
+  border-radius: 50px;
+
+  cursor: pointer;
+}
+.approveButton {
+  border: none;
+  background-color: rgba(0, 255, 94, 0.76);
+  color: white;
+  width: 100px;
+  height: 40px;
+  border-radius: 50px;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+.avatar {
+  max-width: 30%;
+}
+h4 {
+  color: rgb(255, 255, 255);
+}
+.surname {
+  font-size: 20px;
+}
+.edit {
+  border: none;
+  background-color: #0b5eb1;
+  color: white;
+  border-radius: 15px;
+  padding: 5px;
+  width: 50px;
+  cursor: pointer;
+}
+.businessCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}

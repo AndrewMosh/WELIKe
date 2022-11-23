@@ -5,6 +5,7 @@ import "./main.css";
 import { Signup } from "../Signup/Signup";
 import { Signin } from "../Signin/Signin";
 import { AllOfficers } from "../AllOfficers/AllOfficers";
+import { OfficersDetails } from "../OfficersDetails/OfficersDetails";
 
 const Main = () => {
   return (
@@ -14,6 +15,7 @@ const Main = () => {
       <Signup />
       <Signin />
       <AllOfficers />
+      <OfficersDetails />
     </main>
   );
 };

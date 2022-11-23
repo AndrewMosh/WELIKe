@@ -3,5 +3,7 @@ body {
   font-family: "Playfair";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  position: relative;
+}
+* {
+  box-sizing: border-box;
 }

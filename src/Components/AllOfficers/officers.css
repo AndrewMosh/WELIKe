@@ -10,7 +10,7 @@
   flex-direction: column;
   overflow: auto;
   margin: 50px;
-  background-color: #eaf3fa;
+
   padding: 20px;
   border-radius: 15px;
 }
@@ -33,12 +33,12 @@
   column-gap: 10px;
 }
 .approve li {
-  background-color: white;
   border-radius: 5px;
   width: 90vh;
   color: #31577c;
   padding: 10px;
   cursor: pointer;
+  background-color: #eaf3fa9d;
 }
 .approve button {
   border: none;
@@ -57,7 +57,6 @@
   background-color: #5288bd;
 }
 .officerContainer {
-  background-color: #eaf3fa9d;
   padding-bottom: 50px;
   font-size: 18px;
 }
