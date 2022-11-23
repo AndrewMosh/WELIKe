@@ -1,11 +1,12 @@
 import React from "react";
 import signin from "./signin.svg";
 import "../Report/report.css";
+import "./signin.css";
 
 export const Signin = () => {
   return (
-    <div className="report">
-      <div>
+    <div style={{ marginTop: "90px" }} className="report">
+      <div className="signin">
         <img src={signin} alt="thief" />
       </div>
       <form>
@@ -14,7 +15,7 @@ export const Signin = () => {
         <input type="text" required />
         <label htmlFor="">Пароль</label>
         <input type="password" required />
-        <button style={{ marginTop: "10px" }} className="register">
+        <button style={{ margin: "30px 0 20px 0" }} className="register">
           Войти
         </button>
       </form>

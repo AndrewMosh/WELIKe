@@ -6,7 +6,7 @@ import "./signup.css";
 export const Signup = () => {
   return (
     <div className="report">
-      <div>
+      <div className="signup">
         <img src={signup} alt="thief" />
       </div>
       <form>
