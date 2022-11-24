@@ -184,3 +184,48 @@ export const officers = [
     approved: true,
   },
 ];
+
+export const theftReport = [
+  {
+    stat: "new",
+    licenseNumber: 13123123,
+    type: "general",
+    ownerFullName: "Andrew Mosh",
+    clientId: "23423fds",
+  },
+  {
+    stat: "new",
+    licenseNumber: 13123123,
+    type: "general",
+    ownerFullName: "Andrew Mosh",
+    clientId: "23423fds",
+  },
+  {
+    stat: "new",
+    licenseNumber: 13123123,
+    type: "general",
+    ownerFullName: "Andrew Mosh",
+    clientId: "23423fds",
+  },
+  {
+    stat: "new",
+    licenseNumber: 13123123,
+    type: "general",
+    ownerFullName: "Andrew Mosh",
+    clientId: "23423fds",
+  },
+  {
+    stat: "new",
+    licenseNumber: 13123123,
+    type: "general",
+    ownerFullName: "Andrew Mosh",
+    clientId: "23423fds",
+  },
+  {
+    stat: "new",
+    licenseNumber: 13123123,
+    type: "general",
+    ownerFullName: "Andrew Mosh",
+    clientId: "23423fds",
+  },
+];

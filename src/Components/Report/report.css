@@ -54,12 +54,12 @@ form button {
 
 @media screen and (max-width: 500px) {
   form {
-    width: 250px;
+    width: 350px;
   }
   form input {
-    width: 200px;
+    width: 250px;
   }
   form select {
-    width: 200px;
+    width: 250px;
   }
 }

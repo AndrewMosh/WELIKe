@@ -17,7 +17,7 @@ export const Report = () => {
         <label htmlFor="">Цвет велосипеда </label>
         <input type="text" required />
         <label htmlFor="">Дата кражи</label>
-        <input type="text" required />
+        <input type="date" required />
         <label htmlFor="">Дополнительная информация</label>
         <input type="text" required />
         <label htmlFor="">Тип велосипеда</label>

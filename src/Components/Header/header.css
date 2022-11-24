@@ -2,36 +2,11 @@ nav {
   background-color: #5288bd;
   color: white;
 }
-.container {
-  display: flex;
-  justify-content: space-between;
-  max-height: 55px;
-  margin: 0 auto;
-  max-width: 1440px;
+.color {
+  color: white;
 }
-ul {
-  display: flex;
-  margin-right: 90px;
-  justify-content: center;
-  align-items: center;
-}
-ul li {
-  list-style: none;
-  margin: 10px;
-  font-size: 20px;
-  padding: 5px 10px 5px 10px;
-  cursor: pointer;
-}
-ul li:hover {
-  box-shadow: 0 0 3px #e2f1f6;
-  border-radius: 20px;
-}
-.logo {
+.size {
+  font-size: 25px;
   display: flex;
   align-items: center;
-  cursor: pointer;
-  margin-left: 90px;
-}
-.logo span {
-  font-size: 30px;
 }
