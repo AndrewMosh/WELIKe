@@ -2,11 +2,29 @@ nav {
   background-color: #5288bd;
   color: white;
 }
-.color {
+nav li {
+  padding: 10px;
+  cursor: pointer;
+}
+.link {
   color: white;
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
+  color: white;
+  text-underline-offset: 3px;
 }
 .size {
   font-size: 25px;
   display: flex;
   align-items: center;
+}
+.logoLink {
+  text-decoration: none;
+  color: white;
+}
+.logoLink:hover {
+  text-decoration: none;
+  color: white;
 }

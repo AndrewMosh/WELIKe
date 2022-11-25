@@ -2,7 +2,7 @@ import React from "react";
 import thief from "./thief.svg";
 import "./report.css";
 
-export const Report = () => {
+export const Report = ({ isAuth, setAuth }) => {
   return (
     <div className="report">
       <div>
@@ -25,6 +25,14 @@ export const Report = () => {
           <option value="">обычный</option>
           <option value="">спортивный</option>
         </select>
+        {isAuth && (
+          <>
+            <label htmlFor="">Ответственный сотрудник</label>
+            <select>
+              <option value="">Иванов</option>
+            </select>
+          </>
+        )}
         <button>Отправить</button>
       </form>
     </div>

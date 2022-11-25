@@ -4,29 +4,67 @@ import "./header.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-const Header = () => {
+
+const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
+  const handleClick = () => {
+    if (data.data.user.email === "malinaenglishclub@gmail.com") {
+      setAdmin(!admin);
+    }
+
+    setAuth(!isAuth);
+    console.log(data.data.user.email);
+  };
   return (
     <Navbar collapseOnSelect expand="lg" bg="prime" variant="dark">
       <Container>
-        <Navbar.Brand href="#home" className="size">
-          <img width={50} height={40} src={logo} alt="" />
-          Velik
-        </Navbar.Brand>
+        <Link className="logoLink" to={"/"}>
+          <div className="size">
+            <img width={50} height={40} src={logo} alt="" />
+            Velik
+          </div>
+        </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
           <Nav>
-            <Nav.Link className="color" href="#deets">
-              Сообщить о краже
-            </Nav.Link>
-            <Nav.Link className="color" href="#deets">
-              Регистрация
-            </Nav.Link>
-            <Nav.Link className="color" eventKey={2} href="#memes">
-              Войти
-            </Nav.Link>
+            {!admin && isAuth && (
+              <Link className="link" to={"/cases"}>
+                <li>Все кражи</li>
+              </Link>
+            )}
+            {admin && isAuth && (
+              <>
+                <Link className="link" to={"/officers"}>
+                  <li>Админ</li>
+                </Link>
+                <Link className="link" to={"/cases"}>
+                  <li>Все кражи</li>
+                </Link>
+              </>
+            )}
+            <Link className="link" to={"/public/report"}>
+              <li>Сообщить о краже</li>
+            </Link>
+
+            {(!isAuth && (
+              <>
+                <Link className="link" to={"/auth/sign_up"}>
+                  <li>Регистрация</li>
+                </Link>
+                <Link className="link" to={"/auth/sign_in"}>
+                  <li>Войти</li>
+                </Link>
+              </>
+            )) || (
+              <>
+                <Link className="link" to={"/"}>
+                  <li onClick={handleClick}>Выйти</li>
+                </Link>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
