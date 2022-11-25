@@ -31,12 +31,16 @@ const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
           <Nav className="me-auto"></Nav>
           <Nav>
             {!admin && isAuth && (
-              <Link className="link" to={"/cases"}>
-                <li>Все кражи</li>
-              </Link>
+              <>
+                <li style={{ cursor: "auto" }}>{data.data.user.email}</li>
+                <Link className="link" to={"/cases"}>
+                  <li>Все кражи</li>
+                </Link>
+              </>
             )}
             {admin && isAuth && (
               <>
+                <li style={{ cursor: "auto" }}>{data.data.user.email}</li>
                 <Link className="link" to={"/officers"}>
                   <li>Админ</li>
                 </Link>
