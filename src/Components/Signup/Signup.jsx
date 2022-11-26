@@ -24,7 +24,7 @@ export const Signup = () => {
           Authorization: "Bearer " + localStorage.getItem("token"),
         }
       )
-      .then((res) => {
+      .then((response) => {
         setEmail("");
         setPassword("");
         setFirstName("");

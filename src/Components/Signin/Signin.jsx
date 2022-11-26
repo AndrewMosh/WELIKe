@@ -34,7 +34,7 @@ export const Signin = ({
 
       .then((response) => {
         setData(response.data);
-        console.log(response);
+        console.log(data);
         if (response.data.data.user.email === "malinaenglishclub@gmail.com") {
           setAdmin(!admin);
         }

@@ -3,10 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import axios from "axios";
-
-axios.defaults.baseURL = "https://skillfactory-final-project.herokuapp.com/api";
-axios.defaults.headers.common["Content-Type"] = "application-json";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
