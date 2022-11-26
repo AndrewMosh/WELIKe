@@ -30,17 +30,8 @@ const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
           <Nav>
-            {!admin && isAuth && (
-              <>
-                <li style={{ cursor: "auto" }}>{data.data.user.email}</li>
-                <Link className="link" to={"/cases"}>
-                  <li>Все кражи</li>
-                </Link>
-              </>
-            )}
             {admin && isAuth && (
               <>
-                <li style={{ cursor: "auto" }}>{data.data.user.email}</li>
                 <Link className="link" to={"/officers"}>
                   <li>Админ</li>
                 </Link>
@@ -64,6 +55,7 @@ const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
               </>
             )) || (
               <>
+                <li style={{ cursor: "default" }}>{data.data.user.email}</li>
                 <Link className="link" to={"/"}>
                   <li onClick={handleClick}>Выйти</li>
                 </Link>

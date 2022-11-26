@@ -3,6 +3,7 @@ import avatar from "./profile.svg";
 import { officers } from "../Store/Store";
 import "./offdetails.css";
 import staff from "../AllOfficers/officers.svg";
+import { Link } from "react-router-dom";
 
 export const OfficersDetails = () => {
   return (
@@ -12,6 +13,9 @@ export const OfficersDetails = () => {
       </div>
       <h2 className="title">Список всех зарегистрированных сотрудников</h2>
       <div className="businessCard">
+        <Link className="link" to={"/officers"}>
+          <span>X</span>
+        </Link>
         <div className="detailContainer">
           <img className="avatar" src={avatar} alt="avatar" />
           <div>

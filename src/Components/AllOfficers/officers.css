@@ -26,27 +26,27 @@
 .approve {
   display: flex;
   align-items: center;
-  justify-content: center;
-  max-width: 100%;
+
+  max-width: 100vh;
   flex-wrap: no-wrap;
   margin: 10px;
   column-gap: 10px;
 }
 .approve li {
   border-radius: 5px;
-  width: 90vh;
+  word-break: break-word;
   color: #31577c;
   padding: 10px;
   cursor: pointer;
   background-color: #eaf3fa9d;
 }
-.approve button {
+.approve span {
   border: none;
-  padding: 10px;
+  padding: 5px 10px;
   height: 40px;
   margin: 5px;
   border-radius: 15px;
-  color: white;
+  color: red;
   cursor: pointer;
 }
 
@@ -59,8 +59,43 @@
 .officerContainer {
   padding-bottom: 50px;
   font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
+.addOfficer {
+  position: fixed;
+  background-color: #5287bddd;
+  color: white;
+  top: 20%;
+}
+.relat {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+}
+.close {
+  position: absolute;
+  top: -20px;
+  right: -60px;
+  cursor: pointer;
+}
+.addOfficer button {
+  background-color: #52bd5d;
+  margin-top: 10px;
+}
+.addButton {
+  background-color: #5288bd;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
 @media screen and (max-width: 451px) {
   .officers {
     margin: 10px;

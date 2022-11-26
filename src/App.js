@@ -9,6 +9,7 @@ import { Signin } from "./Components/Signin/Signin";
 import { Report } from "./Components/Report/Report";
 import { AllOfficers } from "./Components/AllOfficers/AllOfficers";
 import { Messages } from "./Components/Messages/Messages";
+import { OfficersDetails } from "./Components/OfficersDetails/OfficersDetails";
 
 function App() {
   const [isAuth, setAuth] = useState(false);
@@ -53,6 +54,7 @@ function App() {
           ></Route>
           <Route path="officers" element={<AllOfficers />}></Route>
           <Route path="cases" element={<Messages />}></Route>
+          <Route path="officers/:id" element={<OfficersDetails />}></Route>
         </Routes>
         <Footer />
       </Router>

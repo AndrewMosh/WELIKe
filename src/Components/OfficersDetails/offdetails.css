@@ -57,4 +57,13 @@ h4 {
   justify-content: center;
   align-items: center;
   margin: 15px;
+  position: relative;
+}
+.businessCard span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: red;
+  cursor: pointer;
+  font-size: 18px;
 }

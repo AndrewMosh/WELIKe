@@ -12,14 +12,13 @@ export const Signup = () => {
   const [lastName, setLastName] = useState("");
   const [clientId, setClientId] = useState("");
   const [message, setMessage] = useState("");
-  const [approved, setApproved] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .post(
         "https://skillfactory-final-project.herokuapp.com/api/auth/sign_up",
-        { approved: false, email, password, firstName, lastName, clientId },
+        { email, password, firstName, lastName, clientId },
         {
           "Content-Type": "application/json",
           Authorization: "Bearer " + localStorage.getItem("token"),
@@ -109,11 +108,6 @@ export const Signup = () => {
             required
           />
         </label>
-        <label>Одобрен</label>{" "}
-        <select value={approved} disabled>
-          <option>не одобрен</option>
-          <option>одобрен</option>
-        </select>
         <button className="register">Зарегистрироваться</button>
         <p style={{ textAlign: "center", marginTop: "20px" }}>{message}</p>
       </form>
