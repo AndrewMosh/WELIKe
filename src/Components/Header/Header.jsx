@@ -35,7 +35,7 @@ const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
                 <Link className="link" to={"/officers"}>
                   <li>Админ</li>
                 </Link>
-                <Link className="link" to={"/cases"}>
+                <Link className="link" to={"/cases/"}>
                   <li>Все кражи</li>
                 </Link>
               </>

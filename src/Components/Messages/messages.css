@@ -1,0 +1,94 @@
+.new {
+  background-color: green;
+  color: white;
+  padding: 0 3px;
+  border-radius: 2px;
+  margin-right: 20px;
+}
+
+.message {
+  display: flex;
+  margin: 15px;
+  align-items: center;
+}
+
+.message li {
+  list-style: none;
+  color: rgb(71, 71, 73);
+  padding: 5px;
+  border-radius: 2px;
+  cursor: pointer;
+  min-width: 50vw;
+  background-color: #e2f1f6bf;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.modalDetail {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: #407ebc;
+  margin: 20px;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  box-shadow: 0 0 5px 5px #5287bd;
+  position: absolute;
+  min-width: 20vw;
+  min-height: 30vh;
+  margin: 20px;
+}
+.modalDetail input {
+  border: none;
+  background-color: #e2f1f648;
+  color: rgb(255, 255, 255);
+}
+.modalDetail label {
+  color: white;
+  margin: 10px;
+}
+.modalDetail div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.modalDetail h3 {
+  text-align: center;
+  color: white;
+}
+.editDetail {
+  background-color: #1ad032c6;
+  width: 135px;
+  height: auto;
+  text-align: center;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+.saveDetail {
+  background-color: #d01a1ac6;
+  width: 103px;
+  height: auto;
+  text-align: center;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+.modalDetail span {
+  color: white;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: white;
+  color: black;
+}

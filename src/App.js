@@ -52,11 +52,11 @@ function App() {
             path="public/report"
             element={<Report isAuth={isAuth} setAuth={setAuth} />}
           ></Route>
-          <Route path="officers" element={<AllOfficers />}></Route>
-          <Route path="cases" element={<Messages />}></Route>
-          <Route path="officers/:id" element={<OfficersDetails />}></Route>
+          <Route path="/officers" element={<AllOfficers />}></Route>
+          <Route path="/cases/" element={<Messages />}></Route>
+          <Route path="/officers/:id" element={<OfficersDetails />}></Route>
+          <Route path="/cases/:id" element={<Messages />}></Route>
         </Routes>
-        <Footer />
       </Router>
     </div>
   );
