@@ -5,11 +5,11 @@
   flex-wrap: wrap;
   border-radius: 15px;
   min-width: 100%;
-  padding: 50px;
+  padding: 40px 60px;
   color: white;
   box-shadow: 0 0 7px 4px #9dccf1;
   column-gap: 50px;
-  background-color: #406d9a;
+  background-color: #406d9af1;
   margin: 100px 0 150px 0;
   position: relative;
 }
@@ -23,7 +23,7 @@
   width: 100px;
   height: 40px;
   border-radius: 50px;
-
+  margin-top: 20px;
   cursor: pointer;
 }
 .approveButton {
@@ -40,15 +40,23 @@
 .avatar {
   max-width: 30%;
 }
-h4 {
+h3 {
   color: rgb(255, 255, 255);
+  text-align: center;
 }
 .surname {
-  font-size: 25px;
-  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-p {
-  margin: 10px 0 10px 0;
+.surname input {
+  border: none;
+  border-radius: 10px;
+  background-color: #e9f1f8b4;
+  color: hsl(222, 25%, 28%);
+  padding: 3px;
+  margin: 5px;
+  min-width: 20vw;
 }
 .edit {
   border: none;

@@ -59,7 +59,9 @@ export const Messages = () => {
           <div className="modalDetail">
             <h3>Детали кражи</h3>
 
-            <span onClick={() => setDetail(!detail)}>X</span>
+            <Link to={`/cases/`}>
+              <span onClick={() => setDetail(!detail)}>X</span>
+            </Link>
 
             <div>
               <label>

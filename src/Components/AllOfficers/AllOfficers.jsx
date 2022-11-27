@@ -5,7 +5,9 @@ import staff from "./officers.svg";
 import "./officers.css";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { OfficersDetails } from "../OfficersDetails/OfficersDetails";
+import { useParams } from "react-router-dom";
+import avatar from "./profile.svg";
+import "./offdetails.css";
 
 export const AllOfficers = () => {
   const [email, setEmail] = useState("");
@@ -15,6 +17,10 @@ export const AllOfficers = () => {
   const [info, setInfo] = useState([]);
   const [newWorker, setNewWorker] = useState(false);
   const [detail, setDetail] = useState(false);
+
+  const { id } = useParams();
+  let officer = info.find(({ _id }) => _id === id);
+  console.log(officer);
 
   const changeMail = (e) => {
     setEmail(e.target.value);
@@ -117,12 +123,38 @@ export const AllOfficers = () => {
             </div>
           </form>
         )) ||
-          (!detail && (
-            <OfficersDetails
-              detail={detail}
-              setDetail={setDetail}
-              info={info}
-            />
+          (detail && (
+            <div className="details">
+              <div className="businessCard">
+                <div className="detailContainer">
+                  <img className="avatar" src={avatar} alt="avatar" />
+
+                  <div>
+                    <Link to={`/officers/`}>
+                      {" "}
+                      <span className="link" onClick={() => setDetail(!detail)}>
+                        X
+                      </span>
+                    </Link>
+
+                    <div className="surname">
+                      <label htmlFor="">Имя:</label>{" "}
+                      <input type="text" value={officer.firstName} />
+                      <label htmlFor="">Фамилия:</label>
+                      <input type="text" value={officer.lastName} />
+                      <label>Эл.почта:</label>
+                      <input type="text" value={officer.email} />
+                      <label>clientId:</label>{" "}
+                      <input type="text" value={officer.clientId} />
+                      <button className="edit">ред.</button>
+                    </div>
+                    {(officer.approved === true && (
+                      <button className="cancel">Отозвать</button>
+                    )) || <button className="approveButton">Одобрить</button>}
+                  </div>
+                </div>
+              </div>
+            </div>
           )) ||
           null}
       </div>
