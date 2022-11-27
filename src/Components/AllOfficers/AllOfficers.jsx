@@ -5,6 +5,7 @@ import staff from "./officers.svg";
 import "./officers.css";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { OfficersDetails } from "../OfficersDetails/OfficersDetails";
 
 export const AllOfficers = () => {
   const [email, setEmail] = useState("");
@@ -13,6 +14,7 @@ export const AllOfficers = () => {
   const [surname, setSurname] = useState("");
   const [info, setInfo] = useState([]);
   const [newWorker, setNewWorker] = useState(false);
+  const [detail, setDetail] = useState(false);
 
   const changeMail = (e) => {
     setEmail(e.target.value);
@@ -57,7 +59,11 @@ export const AllOfficers = () => {
         <ol className="officers">
           {info.map((worker) => (
             <div className="approve">
-              <Link className="link" to={"/officers/:id"}>
+              <Link
+                onClick={() => setDetail(!detail)}
+                className="link"
+                to={`/officers/${worker._id}`}
+              >
                 <li>{worker.email}</li>
               </Link>
 
@@ -111,6 +117,13 @@ export const AllOfficers = () => {
             </div>
           </form>
         )) ||
+          (!detail && (
+            <OfficersDetails
+              detail={detail}
+              setDetail={setDetail}
+              info={info}
+            />
+          )) ||
           null}
       </div>
     </div>
