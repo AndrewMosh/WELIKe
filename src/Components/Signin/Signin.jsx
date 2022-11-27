@@ -6,22 +6,14 @@ import "./signin.css";
 import axios from "axios";
 import { Home } from "../Home/Home";
 
-export const Signin = ({
-  isAuth,
-  setAuth,
-  admin,
-  setAdmin,
-  data,
-  setData,
-  worker,
-  setWorker,
-}) => {
+export const Signin = ({ isAuth, setAuth, admin, setAdmin, data, setData }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     axios
       .post(
         "https://skillfactory-final-project.herokuapp.com/api/auth/sign_in",
@@ -34,14 +26,11 @@ export const Signin = ({
 
       .then((response) => {
         setData(response.data);
-        console.log(data);
-        if (response.data.data.user.appoved === true) {
+        setAuth(!isAuth);
+        localStorage.setItem("token", response.data.data.token);
+        if (response.data.data.user.approved === true) {
           setAdmin(!admin);
         }
-        setMessage("Вы вошли в свой аккаунт");
-        setAuth(!isAuth);
-        console.log(admin);
-        localStorage.setItem("token", response.data.data.token);
       })
       .catch((error) => {
         console.log(error);

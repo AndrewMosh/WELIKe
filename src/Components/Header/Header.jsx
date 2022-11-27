@@ -13,10 +13,8 @@ const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
     if (data.data.user.approved === true) {
       setAdmin(!admin);
     }
-
     setAuth(!isAuth);
     localStorage.removeItem("token");
-    console.log(data.data.user.approved);
   };
   return (
     <Navbar collapseOnSelect expand="lg" bg="prime" variant="dark">

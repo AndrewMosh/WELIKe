@@ -20,7 +20,6 @@ export const AllOfficers = () => {
 
   const { id } = useParams();
   let officer = info.find(({ _id }) => _id === id);
-  console.log(officer);
 
   const changeMail = (e) => {
     setEmail(e.target.value);

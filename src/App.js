@@ -14,7 +14,7 @@ function App() {
   const [isAuth, setAuth] = useState(false);
   const [admin, setAdmin] = useState(false);
   const [worker, setWorker] = useState(false);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   return (
     <div>
