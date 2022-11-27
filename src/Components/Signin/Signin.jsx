@@ -35,7 +35,7 @@ export const Signin = ({
       .then((response) => {
         setData(response.data);
         console.log(data);
-        if (response.data.data.user.email === "malinaenglishclub@gmail.com") {
+        if (response.data.data.user.appoved === true) {
           setAdmin(!admin);
         }
         setMessage("Вы вошли в свой аккаунт");
@@ -45,7 +45,9 @@ export const Signin = ({
       })
       .catch((error) => {
         console.log(error);
-        setMessage("Вы ввели неверный логин или пароль");
+        setMessage(
+          "Проблемы с подключением. Возможно Вы ввели неверный логин или пароль"
+        );
       });
   };
 

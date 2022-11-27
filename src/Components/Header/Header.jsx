@@ -10,12 +10,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
   const handleClick = () => {
-    if (data.data.user.email === "malinaenglishclub@gmail.com") {
+    if (data.data.user.approved === true) {
       setAdmin(!admin);
     }
 
     setAuth(!isAuth);
-    console.log(data.data.user.email);
+    localStorage.removeItem("token");
+    console.log(data.data.user.approved);
   };
   return (
     <Navbar collapseOnSelect expand="lg" bg="prime" variant="dark">
@@ -33,7 +34,7 @@ const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
             {admin && isAuth && (
               <>
                 <Link className="link" to={"/officers"}>
-                  <li>Админ</li>
+                  <li>Ответственный сотрудник</li>
                 </Link>
                 <Link className="link" to={"/cases/"}>
                   <li>Все кражи</li>

@@ -76,7 +76,7 @@ h3 {
 }
 .businessCard span {
   position: absolute;
-  color: red;
+  color: rgb(255, 255, 255);
   cursor: pointer;
   font-size: 18px;
   top: 15px;
