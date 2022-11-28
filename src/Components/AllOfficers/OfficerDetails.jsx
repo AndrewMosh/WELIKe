@@ -10,10 +10,11 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
   const { id } = useParams();
   let officer = info.find(({ _id }) => _id === id);
   const [editMode, setEdit] = useState(false);
-  const [password, setPassword] = useState(officer.password);
+  const [password, setPassword] = useState("password");
   const [firstName, setName] = useState(officer.firstName);
   const [lastName, setSurname] = useState(officer.lastName);
-  const [approved, setApproved] = useState(false);
+  const [approved, setApproved] = useState(officer.approved);
+  const [changePassword, setChangePassword] = useState(false);
 
   const handleEdit = (e) => {
     e.preventDefault();
@@ -28,11 +29,13 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
         {
           firstName: firstName,
           lastName: lastName,
-          password: password.toString,
+          approved: approved,
+          password: password,
         },
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json",
           },
         }
       )
@@ -44,12 +47,14 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
         console.log(err);
       });
   };
+
   return (
     <div className="details">
       <div className="businessCard">
         <div className="detailContainer">
-          <img className="avatar" src={avatar} alt="avatar" />
-
+          <div className="avatar">
+            <img src={avatar} alt="avatar" />
+          </div>
           <div>
             <Link to={`/officers/`}>
               <span className="link" onClick={() => setDetail(!detail)}>
@@ -61,9 +66,9 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
               <label htmlFor="">Имя:</label>
               <input
                 onChange={(e) => setName(e.target.value)}
+                disabled={!editMode ? true : false}
                 type="text"
                 value={firstName}
-                disabled={!editMode ? true : false}
               />
               <label htmlFor="">Фамилия:</label>
               <input
@@ -77,20 +82,29 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
               <label>Пароль:</label>
               <input
                 onChange={(e) => setPassword(e.target.value)}
+                onClick={() => setChangePassword(!changePassword)}
                 type="password"
                 value={password}
                 disabled={!editMode ? true : false}
               />
               <label>Идент.номер:</label>
               <input type="text" value={officer._id} disabled />
+
+              <label>Одобрен</label>
+              <input
+                className="approved"
+                type="checkbox"
+                value={approved}
+                disabled={!editMode ? true : false}
+                checked={approved}
+                onChange={() => setApproved(!approved)}
+              />
+
               {(!editMode && (
                 <button className="edit" onClick={handleEdit}>
-                  ред.
+                  редактировать
                 </button>
-              )) || <button className="edit">сохр.</button>}
-              {(officer.approved === true && (
-                <button className="cancel">Отозвать</button>
-              )) || <button className="approveButton">Одобрить</button>}
+              )) || <button className="saveRedact">сохранить</button>}
             </form>
           </div>
         </div>

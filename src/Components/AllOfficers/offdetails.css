@@ -4,7 +4,7 @@
   align-items: center;
   flex-wrap: wrap;
   border-radius: 15px;
-  min-width: 100%;
+  max-width: 50vw;
   padding: 40px 60px;
   color: white;
   box-shadow: 0 0 7px 4px #9dccf1;
@@ -17,29 +17,8 @@
 .details {
   position: absolute;
 }
-.cancel {
-  border: none;
-  background-color: rgba(255, 0, 0, 0.76);
-  color: white;
-  width: 100px;
-  height: 40px;
-  border-radius: 50px;
-  margin-top: 20px;
-  cursor: pointer;
-}
-.approveButton {
-  border: none;
-  background-color: rgba(0, 255, 94, 0.76);
-  color: white;
-  width: 100px;
-  height: 40px;
-  border-radius: 50px;
-  margin-top: 40px;
-  cursor: pointer;
-}
-
 .avatar {
-  max-width: 30%;
+  max-width: 100%;
 }
 h3 {
   color: rgb(255, 255, 255);
@@ -51,16 +30,15 @@ h3 {
   justify-content: center;
   background-color: #406d9a00;
   padding: 0;
-  max-width: 50vw;
+  max-width: 20vw;
 }
 .surname input {
   border: none;
   border-radius: 10px;
   background-color: #e9f1f8b4;
-
   padding: 0 10px;
   margin: 5px;
-  min-width: 20vw;
+  max-width: 20vw;
   background-color: white;
 }
 .surname input:disabled {
@@ -69,14 +47,23 @@ h3 {
 }
 .edit {
   border: none;
-  background-color: #0b5eb1;
+  background-color: rgba(0, 255, 94, 0.76);
   color: white;
-  border-radius: 15px;
-  padding: 5px;
-  width: 50px;
+  width: 150px;
+  height: 40px;
+  border-radius: 50px;
+  margin-top: 40px;
   cursor: pointer;
-  align-self: flex-start;
-  margin-right: 30px;
+}
+.saveRedact {
+  border: none;
+  background-color: rgba(255, 30, 0, 0.76);
+  color: white;
+  width: 150px;
+  height: 40px;
+  border-radius: 50px;
+  margin-top: 40px;
+  cursor: pointer;
 }
 .businessCard {
   display: flex;
@@ -95,4 +82,9 @@ h3 {
 }
 .businessCard span:hover {
   text-decoration: none;
+}
+.approved {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
