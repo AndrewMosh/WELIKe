@@ -4,7 +4,7 @@
   align-items: center;
   flex-wrap: wrap;
   border-radius: 15px;
-  max-width: 50vw;
+  max-width: 100vw;
   padding: 40px 60px;
   color: white;
   box-shadow: 0 0 7px 4px #9dccf1;
@@ -30,7 +30,7 @@ h3 {
   justify-content: center;
   background-color: #406d9a00;
   padding: 0;
-  max-width: 20vw;
+  max-width: 50vw;
 }
 .surname input {
   border: none;
@@ -38,7 +38,7 @@ h3 {
   background-color: #e9f1f8b4;
   padding: 0 10px;
   margin: 5px;
-  max-width: 20vw;
+  max-width: 70vw;
   background-color: white;
 }
 .surname input:disabled {
@@ -57,7 +57,7 @@ h3 {
 }
 .saveRedact {
   border: none;
-  background-color: rgba(255, 30, 0, 0.76);
+  background-color: rgba(255, 208, 0, 0.76);
   color: white;
   width: 150px;
   height: 40px;
@@ -87,4 +87,21 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.delete {
+  border: none;
+  background-color: rgba(255, 30, 0, 0.76);
+  color: white;
+  width: 150px;
+  height: 40px;
+  border-radius: 50px;
+  margin-top: 40px;
+  cursor: pointer;
+}
+.butts {
+  text-align: center;
+  margin-top: 20px;
+}
+.butts button {
+  margin: 15px;
 }

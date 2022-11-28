@@ -1,6 +1,6 @@
 import React from "react";
 import "./offdetails.css";
-import avatar from "./profile.svg";
+
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -14,15 +14,15 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
   const [firstName, setName] = useState(officer.firstName);
   const [lastName, setSurname] = useState(officer.lastName);
   const [approved, setApproved] = useState(officer.approved);
-  const [changePassword, setChangePassword] = useState(false);
 
   const handleEdit = (e) => {
     e.preventDefault();
     setEdit(!editMode);
   };
-  const handleSave = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setEdit(!editMode);
+
     axios
       .put(
         `https://skillfactory-final-project.herokuapp.com/api/officers/${officer._id}`,
@@ -48,13 +48,30 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
       });
   };
 
+  //удаляем сотрудника
+  const handleDelete = (e) => {
+    e.preventDefault();
+    axios
+      .delete(
+        `https://skillfactory-final-project.herokuapp.com/api/officers/${officer._id}`,
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      )
+      .then((res) => {
+        allWorkers();
+        setDetail(!detail);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="details">
       <div className="businessCard">
         <div className="detailContainer">
-          <div className="avatar">
-            <img src={avatar} alt="avatar" />
-          </div>
           <div>
             <Link to={`/officers/`}>
               <span className="link" onClick={() => setDetail(!detail)}>
@@ -62,7 +79,7 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
               </span>
             </Link>
 
-            <form className="surname" onSubmit={handleSave}>
+            <form className="surname" onSubmit={handleSubmit}>
               <label htmlFor="">Имя:</label>
               <input
                 onChange={(e) => setName(e.target.value)}
@@ -82,14 +99,12 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
               <label>Пароль:</label>
               <input
                 onChange={(e) => setPassword(e.target.value)}
-                onClick={() => setChangePassword(!changePassword)}
                 type="password"
                 value={password}
                 disabled={!editMode ? true : false}
               />
               <label>Идент.номер:</label>
               <input type="text" value={officer._id} disabled />
-
               <label>Одобрен</label>
               <input
                 className="approved"
@@ -99,12 +114,16 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
                 checked={approved}
                 onChange={() => setApproved(!approved)}
               />
-
-              {(!editMode && (
-                <button className="edit" onClick={handleEdit}>
-                  редактировать
+              <div className="butts">
+                {(!editMode && (
+                  <button className="edit" onSubmit={handleEdit}>
+                    редактировать
+                  </button>
+                )) || <button className="saveRedact">сохранить</button>}
+                <button className="delete" onClick={handleDelete}>
+                  Удалить
                 </button>
-              )) || <button className="saveRedact">сохранить</button>}
+              </div>
             </form>
           </div>
         </div>

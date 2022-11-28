@@ -17,7 +17,6 @@ export const AllOfficers = () => {
   const [info, setInfo] = useState([]);
   const [newWorker, setNewWorker] = useState(false);
   const [detail, setDetail] = useState(false);
-  const [approved, setApproved] = useState(false);
   const [message, setMessage] = useState("");
 
   //загружаем список всех сотрудников
@@ -55,7 +54,7 @@ export const AllOfficers = () => {
     axios
       .post(
         "https://skillfactory-final-project.herokuapp.com/api/officers",
-        { email, password, firstName, lastName, approved },
+        { email, password, firstName, lastName },
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
@@ -82,8 +81,6 @@ export const AllOfficers = () => {
     setMessage("");
   };
 
-  //состояния для редактирования данных сотрудника
-
   return (
     <div>
       <div className="pic">
@@ -101,8 +98,6 @@ export const AllOfficers = () => {
               >
                 <li>{worker.email}</li>
               </Link>
-
-              <span>X</span>
             </div>
           ))}
         </ol>
