@@ -31,6 +31,7 @@ export const Signup = () => {
         setLastName("");
         setClientId("");
         setMessage("Поздравлем! Вы зарегистрированы!");
+        console.log(response);
       })
       .catch((error) => {
         setMessage(error.response.data.message);

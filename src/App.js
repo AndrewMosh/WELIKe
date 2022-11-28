@@ -49,7 +49,7 @@ function App() {
           ></Route>
           <Route
             path="public/report"
-            element={<Report isAuth={isAuth} setAuth={setAuth} />}
+            element={<Report isAuth={isAuth} setAuth={setAuth} admin={admin} />}
           ></Route>
           <Route path="/officers" element={<AllOfficers />}></Route>
           <Route path="/cases/" element={<Messages />}></Route>

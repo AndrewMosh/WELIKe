@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 import { OfficerDetails } from "./OfficerDetails";
 
-export const AllOfficers = () => {
+export const AllOfficers = ({ list, setList }) => {
   //состояния для регистрации нового сотрудника
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

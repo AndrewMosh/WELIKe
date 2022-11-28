@@ -25,6 +25,7 @@ form input {
   border: none;
   height: 40px;
   border-radius: 5px;
+  padding: 10px;
 }
 form select {
   border: none;
@@ -51,7 +52,41 @@ form button {
   border-radius: 10px;
   cursor: pointer;
 }
+.modal {
+  margin: 20px 0;
 
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  transform: scale(0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 15px 5px #3a6da0;
+  background-image: url(thief.svg);
+  filter: grayscale(50%);
+  background-size: contain;
+  background-color: #e2f1f6;
+}
+.modal button {
+  transform: scale(1.4);
+  margin-top: 20px;
+}
+.modal span {
+  color: red;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  transform: scale(1.8);
+  cursor: pointer;
+}
+.modal div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d1edf6f1;
+  padding: 30px 60px;
+  border-radius: 10px;
+}
 @media screen and (max-width: 500px) {
   form {
     width: 350px;

@@ -5,7 +5,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
@@ -15,7 +14,9 @@ const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
     }
     setAuth(!isAuth);
     localStorage.removeItem("token");
+    console.log(admin);
   };
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="prime" variant="dark">
       <Container>
@@ -39,9 +40,11 @@ const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
                 </Link>
               </>
             )}
-            <Link className="link" to={"/public/report"}>
-              <li>Сообщить о краже</li>
-            </Link>
+            {!admin && (
+              <Link className="link" to={"/public/report"}>
+                <li>Сообщить о краже</li>
+              </Link>
+            )}
 
             {(!isAuth && (
               <>
