@@ -34,9 +34,7 @@ export const Signin = ({ isAuth, setAuth, admin, setAdmin, data, setData }) => {
       })
       .catch((error) => {
         console.log(error);
-        setMessage(
-          "Проблемы с подключением. Возможно Вы ввели неверный логин или пароль"
-        );
+        setMessage(error.message);
       });
   };
 

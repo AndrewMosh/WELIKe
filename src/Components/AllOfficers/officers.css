@@ -8,6 +8,7 @@
 .officers {
   display: flex;
   flex-direction: column;
+  max-height: 60vh;
   overflow: auto;
   margin: 50px;
 
@@ -76,12 +77,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 0;
+
+  margin: 10px;
 }
+
 .close {
   position: absolute;
   top: -20px;
-  right: -60px;
+  right: -20px;
   cursor: pointer;
 }
 .addOfficer button {

@@ -5,35 +5,22 @@ import staff from "./officers.svg";
 import "./officers.css";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import avatar from "./profile.svg";
-import "./offdetails.css";
+
+import { OfficerDetails } from "./OfficerDetails";
 
 export const AllOfficers = () => {
+  //состояния для регистрации нового сотрудника
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
+  const [firstName, setName] = useState("");
+  const [lastName, setSurname] = useState("");
   const [info, setInfo] = useState([]);
   const [newWorker, setNewWorker] = useState(false);
   const [detail, setDetail] = useState(false);
+  const [approved, setApproved] = useState(false);
+  const [message, setMessage] = useState("");
 
-  const { id } = useParams();
-  let officer = info.find(({ _id }) => _id === id);
-
-  const changeMail = (e) => {
-    setEmail(e.target.value);
-  };
-  const changePassword = (e) => {
-    setPassword(e.target.value);
-  };
-  const changeName = (e) => {
-    setName(e.target.value);
-  };
-  const changeSurname = (e) => {
-    setSurname(e.target.value);
-  };
-
+  //загружаем список всех сотрудников
   const allWorkers = async () => {
     const result = await axios.get(
       "https://skillfactory-final-project.herokuapp.com/api/officers/",
@@ -49,10 +36,53 @@ export const AllOfficers = () => {
   useEffect(() => {
     allWorkers();
   }, []);
+  //добавляем нового сотрудника
+  const changeMail = (e) => {
+    setEmail(e.target.value);
+  };
+  const changePassword = (e) => {
+    setPassword(e.target.value);
+  };
+  const changeName = (e) => {
+    setName(e.target.value);
+  };
+  const changeSurname = (e) => {
+    setSurname(e.target.value);
+  };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post(
+        "https://skillfactory-final-project.herokuapp.com/api/officers",
+        { email, password, firstName, lastName, approved },
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      )
+      .then((response) => {
+        setName("");
+        setPassword("");
+        setEmail("");
+        setSurname("");
+        setMessage("Новый сотрудник успешно зарегистрирован");
+        allWorkers();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const handleAdd = () => {
     setNewWorker(!newWorker);
   };
+  const handleClose = () => {
+    setNewWorker(!newWorker);
+    setMessage("");
+  };
+
+  //состояния для редактирования данных сотрудника
 
   return (
     <div>
@@ -63,7 +93,7 @@ export const AllOfficers = () => {
       <div className="officerContainer">
         <ol className="officers">
           {info.map((worker) => (
-            <div className="approve">
+            <div key={worker._id} className="approve">
               <Link
                 onClick={() => setDetail(!detail)}
                 className="link"
@@ -80,8 +110,17 @@ export const AllOfficers = () => {
           Добавить сотрудника
         </button>
         {(newWorker && (
-          <form method="post" className="addOfficer">
+          <form method="post" className="addOfficer" onSubmit={handleSubmit}>
             <div className="relat">
+              <span
+                style={{
+                  color: "white",
+                  textAlign: "center",
+                  marginBottom: "20px",
+                }}
+              >
+                {message}
+              </span>
               <label>E-mail </label>
               <input
                 onChange={changeMail}
@@ -105,7 +144,7 @@ export const AllOfficers = () => {
                 onChange={changeName}
                 type="text"
                 name="имя"
-                value={name}
+                value={firstName}
               />
 
               <label>Фамилия</label>
@@ -113,9 +152,9 @@ export const AllOfficers = () => {
                 onChange={changeSurname}
                 type="text"
                 name="фамилия"
-                value={surname}
+                value={lastName}
               />
-              <span onClick={() => setNewWorker(!newWorker)} className="close">
+              <span onClick={handleClose} className="close">
                 X
               </span>
               <button>Добавить</button>
@@ -123,37 +162,12 @@ export const AllOfficers = () => {
           </form>
         )) ||
           (detail && (
-            <div className="details">
-              <div className="businessCard">
-                <div className="detailContainer">
-                  <img className="avatar" src={avatar} alt="avatar" />
-
-                  <div>
-                    <Link to={`/officers/`}>
-                      {" "}
-                      <span className="link" onClick={() => setDetail(!detail)}>
-                        X
-                      </span>
-                    </Link>
-
-                    <div className="surname">
-                      <label htmlFor="">Имя:</label>{" "}
-                      <input type="text" value={officer.firstName} />
-                      <label htmlFor="">Фамилия:</label>
-                      <input type="text" value={officer.lastName} />
-                      <label>Эл.почта:</label>
-                      <input type="text" value={officer.email} />
-                      <label>clientId:</label>{" "}
-                      <input type="text" value={officer.clientId} />
-                      <button className="edit">ред.</button>
-                    </div>
-                    {(officer.approved === true && (
-                      <button className="cancel">Отозвать</button>
-                    )) || <button className="approveButton">Одобрить</button>}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <OfficerDetails
+              detail={detail}
+              setDetail={setDetail}
+              info={info}
+              allWorkers={allWorkers}
+            />
           )) ||
           null}
       </div>

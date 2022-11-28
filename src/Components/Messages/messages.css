@@ -16,7 +16,7 @@
   list-style: none;
   color: rgb(71, 71, 73);
   padding: 5px;
-  border-radius: 2px;
+  border-radius: 10px;
   cursor: pointer;
   min-width: 50vw;
   background-color: #e2f1f6bf;
@@ -25,12 +25,15 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  height: 70vh;
+  overflow: auto;
 }
+
 .modalDetail {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  background-color: #407ebced;
+  background-color: #407ebcf6;
   margin: 20px;
   padding: 20px;
   align-items: center;
