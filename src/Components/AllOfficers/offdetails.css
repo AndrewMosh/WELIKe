@@ -11,7 +11,8 @@
   column-gap: 50px;
   background-color: #406d9af1;
   margin: 0;
-  position: relative;
+  position: fixed;
+  top: 5%;
 }
 
 .details {

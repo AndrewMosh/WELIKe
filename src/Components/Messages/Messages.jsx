@@ -56,7 +56,17 @@ export const Messages = ({ approved, setApproved }) => {
           )}
           {cases.map((item) => (
             <div key={item._id} className="message">
-              <span className="new">{item.status}</span>
+              <span
+                className="new"
+                style={{
+                  backgroundColor:
+                    (item.status === "new" && "green") ||
+                    (item.status === "in_progress" && "gold") ||
+                    (item.status === "done" && "red"),
+                }}
+              >
+                {item.status}
+              </span>
               <Link
                 onClick={handleDetail}
                 className="link"

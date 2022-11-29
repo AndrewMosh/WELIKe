@@ -23,7 +23,7 @@ const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
         <Link className="logoLink" to={"/"}>
           <div className="size">
             <img width={50} height={40} src={logo} alt="" />
-            Velik
+            WELIKe
           </div>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

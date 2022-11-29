@@ -54,7 +54,7 @@ export const ForAuth = ({
     setType(type);
   }, [type]);
   useEffect(() => {
-    console.log(approved);
+    setApproved(approved);
   }, [approved]);
   const handleSubmit = (e) => {
     e.preventDefault();

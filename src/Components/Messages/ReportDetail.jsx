@@ -58,9 +58,6 @@ export const ReportDetail = ({
   useEffect(() => {
     console.log(status);
   }, [status]);
-  useEffect(() => {
-    console.log(approved);
-  }, [editMode]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -259,9 +256,9 @@ export const ReportDetail = ({
               }}
               disabled={!editMode ? true : false}
             >
-              <option value={"default"}>new</option>
+              <option value="new">new</option>
 
-              <option value="in_progres">in_progress</option>
+              <option value="in_progress">in_progress</option>
               <option value="done">done</option>
             </select>
           </label>
