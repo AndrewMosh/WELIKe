@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 import { OfficerDetails } from "./OfficerDetails";
 
-export const AllOfficers = ({ list, setList }) => {
+export const AllOfficers = ({ approved, setApproved }) => {
   //состояния для регистрации нового сотрудника
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,11 +30,13 @@ export const AllOfficers = ({ list, setList }) => {
       }
     );
     setInfo(result.data.officers);
+    setApproved(result.data.officers);
   };
 
   useEffect(() => {
     allWorkers();
-  }, []);
+  }, [newWorker]);
+
   //добавляем нового сотрудника
   const changeMail = (e) => {
     setEmail(e.target.value);

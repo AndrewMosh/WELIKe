@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { ForAuth } from "../Report/ForAuth";
 
-export const Messages = () => {
+export const Messages = ({ approved, setApproved }) => {
   const [cases, setCases] = useState([]);
   const [detail, setDetail] = useState(false);
   const [editMode, setEdit] = useState(false);
@@ -51,7 +51,12 @@ export const Messages = () => {
             Добавить сообщение
           </button>
           {newMessage && (
-            <ForAuth newMessage={newMessage} setNewMessage={setNewMessage} />
+            <ForAuth
+              newMessage={newMessage}
+              setNewMessage={setNewMessage}
+              approved={approved}
+              setApproved={setApproved}
+            />
           )}
           {cases.map((item) => (
             <div key={item._id} className="message">

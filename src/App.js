@@ -15,6 +15,7 @@ function App() {
   const [admin, setAdmin] = useState(false);
   const [worker, setWorker] = useState(false);
   const [data, setData] = useState([]);
+  const [approved, setApproved] = useState([]);
 
   return (
     <div>
@@ -51,10 +52,26 @@ function App() {
             path="public/report"
             element={<Report isAuth={isAuth} setAuth={setAuth} admin={admin} />}
           ></Route>
-          <Route path="/officers" element={<AllOfficers />}></Route>
-          <Route path="/cases/" element={<Messages />}></Route>
-          <Route path="/officers/:id" element={<AllOfficers />}></Route>
-          <Route path="/cases/:id" element={<Messages />}></Route>
+          <Route
+            path="/officers"
+            element={
+              <AllOfficers approved={approved} setApproved={setApproved} />
+            }
+          ></Route>
+          <Route
+            path="/cases/"
+            element={<Messages approved={approved} setApproved={setApproved} />}
+          ></Route>
+          <Route
+            path="/officers/:id"
+            element={
+              <AllOfficers approved={approved} setApproved={setApproved} />
+            }
+          ></Route>
+          <Route
+            path="/cases/:id"
+            element={<Messages approved={approved} setApproved={setApproved} />}
+          ></Route>
         </Routes>
       </Router>
     </div>

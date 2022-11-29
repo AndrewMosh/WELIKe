@@ -19,8 +19,10 @@ export const Signin = ({ isAuth, setAuth, admin, setAdmin, data, setData }) => {
         "https://skillfactory-final-project.herokuapp.com/api/auth/sign_in",
         { email, password },
         {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
         }
       )
 

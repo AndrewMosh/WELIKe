@@ -20,19 +20,26 @@ export const Signup = () => {
         "https://skillfactory-final-project.herokuapp.com/api/auth/sign_up",
         { email, password, firstName, lastName, clientId },
         {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then(
+        (response) => {
+          setEmail("");
+          setPassword("");
+          setFirstName("");
+          setLastName("");
+          setClientId("");
+          setMessage("Поздравлем! Вы зарегистрированы!");
+          console.log(response);
+        },
+        {
           "Content-Type": "application/json",
           Authorization: "Bearer " + localStorage.getItem("token"),
         }
       )
-      .then((response) => {
-        setEmail("");
-        setPassword("");
-        setFirstName("");
-        setLastName("");
-        setClientId("");
-        setMessage("Поздравлем! Вы зарегистрированы!");
-        console.log(response);
-      })
       .catch((error) => {
         setMessage(error.response.data.message);
       });

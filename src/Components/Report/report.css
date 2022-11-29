@@ -79,7 +79,7 @@ form button {
   display: flex;
   background-color: #e2f1f6e8;
   border-radius: 0;
-  min-width: 50vw;
+  min-width: 45vw;
 }
 @media screen and (max-width: 500px) {
   form {

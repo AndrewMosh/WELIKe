@@ -10,7 +10,7 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
   const { id } = useParams();
   let officer = info.find(({ _id }) => _id === id);
   const [editMode, setEdit] = useState(false);
-  const [password, setPassword] = useState("password");
+  const [password, setPassword] = useState("");
   const [firstName, setName] = useState(officer.firstName);
   const [lastName, setSurname] = useState(officer.lastName);
   const [approved, setApproved] = useState(officer.approved);

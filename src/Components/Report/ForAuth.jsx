@@ -4,7 +4,12 @@ import "./report.css";
 import axios from "axios";
 import { useEffect } from "react";
 
-export const ForAuth = ({ newMessage, setNewMessage }) => {
+export const ForAuth = ({
+  newMessage,
+  setNewMessage,
+  approved,
+  setApproved,
+}) => {
   const [licenseNumber, setLicenseNumber] = useState("");
   const [ownerFullName, setOwnerFullName] = useState("");
   const [color, setColor] = useState("");
@@ -13,27 +18,8 @@ export const ForAuth = ({ newMessage, setNewMessage }) => {
   const [type, setType] = useState("");
   const [message, setMessage] = useState("");
   const [officer, setOfficer] = useState("");
-  const [list, setList] = useState([]);
 
-  const approvedWorkers = async () => {
-    const result = await axios.get(
-      "https://skillfactory-final-project.herokuapp.com/api/officers/",
-
-      {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      }
-    );
-    setList(
-      result.data.officers.filter((officer) => officer.approved === true)
-    );
-  };
-
-  useEffect(() => {
-    approvedWorkers();
-  }, []);
-
+  let listOfApproved = approved.filter((officer) => officer.approved === true);
   const handleNumber = (e) => {
     setLicenseNumber(e.target.value);
   };
@@ -54,20 +40,20 @@ export const ForAuth = ({ newMessage, setNewMessage }) => {
   };
   const handleType = (e) => {
     setType(e.target.value);
-    console.log(type);
   };
   const handleOfficer = (e) => {
     const chosenId = e.target.value;
-    const chosenPerson = list.filter((p) => p._id === chosenId)[0];
+    const chosenPerson = approved.filter((p) => p._id === chosenId)[0];
     setOfficer(chosenPerson._id);
-    console.log(officer);
   };
+
   useEffect(() => {
-    console.log(officer);
+    setOfficer(officer);
   }, [officer]);
   useEffect(() => {
-    console.log(type);
+    setType(type);
   }, [type]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -75,16 +61,19 @@ export const ForAuth = ({ newMessage, setNewMessage }) => {
       .post(
         "https://skillfactory-final-project.herokuapp.com/api/cases/",
         {
-          ownerFullName: ownerFullName,
-          licenseNumber: licenseNumber,
-          type: type,
-          color: color,
-          date: date,
-          description: description,
-          officer: "bitch",
+          licenseNumber,
+          ownerFullName,
+          color,
+          date,
+          description,
+          type,
+          officer,
         },
         {
-          Authorization: "Bearer" + localStorage.getItem("token"),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
         }
       )
       .then((res) => {
@@ -95,6 +84,7 @@ export const ForAuth = ({ newMessage, setNewMessage }) => {
         setDate("");
         setDescription("");
         setMessage("Заявка отправлена");
+        console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -145,7 +135,7 @@ export const ForAuth = ({ newMessage, setNewMessage }) => {
           value={officer}
         >
           <option value="default">Выберите сотрудника</option>
-          {list.map((officer) => (
+          {listOfApproved.map((officer) => (
             <option key={officer._id} value={officer._id}>
               {officer.firstName} {officer.lastName}
             </option>
