@@ -102,11 +102,11 @@ export const ForAuth = ({ newMessage, setNewMessage }) => {
   };
 
   return (
-    <form className="modal" method="post" onSubmit={handleSubmit}>
+    <div className="modal">
       <span onClick={() => setNewMessage(!newMessage)}>X</span>
-      <div>
-        <p>{message}</p>
+      <form className="modalForm" method="post" onSubmit={handleSubmit}>
         <h2>Сообщить о краже</h2>
+        <p>{message}</p>
         <label>Номер лицензии </label>
         <input
           onChange={handleNumber}
@@ -138,7 +138,6 @@ export const ForAuth = ({ newMessage, setNewMessage }) => {
           <option value="general">general</option>
           <option value="sport">sport</option>
         </select>
-
         <label>Ответственный сотрудник</label>
         <select
           onChange={handleOfficer}
@@ -152,9 +151,8 @@ export const ForAuth = ({ newMessage, setNewMessage }) => {
             </option>
           ))}
         </select>
-
         <button type="submit">Отправить</button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };

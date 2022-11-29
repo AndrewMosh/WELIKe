@@ -50,7 +50,7 @@ export const Messages = () => {
           >
             Добавить сообщение
           </button>
-          {!newMessage && (
+          {newMessage && (
             <ForAuth newMessage={newMessage} setNewMessage={setNewMessage} />
           )}
           {cases.map((item) => (

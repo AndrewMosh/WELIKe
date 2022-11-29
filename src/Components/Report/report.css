@@ -53,18 +53,15 @@ form button {
   cursor: pointer;
 }
 .modal {
-  margin: 20px 0;
-
-  padding: 30px;
   border-radius: 10px;
-  display: flex;
-  transform: scale(0.8);
-  border-radius: 10px;
-  box-shadow: 0 0 15px 5px #3a6da0;
+  display: grid;
+  justify-content: center;
   background-image: url(thief.svg);
-  filter: grayscale(50%);
+  background-position: center;
   background-size: contain;
-  background-color: #e2f1f6;
+  border-radius: 10px;
+  transform: scale(0.8);
+  box-shadow: 0 0 15px 5px #3a6da0;
 }
 .modal button {
   transform: scale(1.4);
@@ -73,19 +70,16 @@ form button {
 .modal span {
   color: red;
   position: absolute;
-  right: 40px;
-  top: 40px;
+  right: 20px;
+  top: 20px;
   transform: scale(1.8);
   cursor: pointer;
 }
-.modal div {
+.modalForm {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #d1edf6f1;
-  padding: 30px 60px;
-  border-radius: 10px;
+  background-color: #e2f1f6e8;
+  border-radius: 0;
+  min-width: 50vw;
 }
 @media screen and (max-width: 500px) {
   form {
