@@ -52,6 +52,7 @@
   align-items: center;
   max-height: 70vh;
   overflow: auto;
+  margin: 30px 0;
 }
 .modalContainer div {
   display: flex;
@@ -60,6 +61,12 @@
   border: none;
   background-color: #e2f1f648;
   color: rgb(255, 255, 255);
+}
+.modalDetail select,
+.modalDetail input {
+  min-width: 20vw;
+  min-height: 5vh;
+  max-width: 80vw;
 }
 .modalDetail label {
   color: white;
@@ -75,7 +82,7 @@
   color: white;
 }
 .editDetail {
-  background-color: #1ad032c6;
+  background-color: #1ad032;
   width: 135px;
   height: auto;
   text-align: center;
@@ -83,9 +90,12 @@
   padding: 10px;
   border-radius: 10px;
   color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 .saveDetail {
-  background-color: #d01a1ac6;
+  background-color: #c6b518;
   width: 103px;
   height: auto;
   text-align: center;
@@ -93,6 +103,9 @@
   padding: 10px;
   border-radius: 10px;
   color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 .modalDetail span {
   color: white;
@@ -116,4 +129,17 @@
 }
 .wrapModal {
   position: relative;
+}
+.deleteDetail {
+  background-color: #d01a1a;
+  width: 103px;
+  height: auto;
+  text-align: center;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
