@@ -70,6 +70,8 @@
   background-color: #5287bddd;
   color: white;
   top: 20%;
+  padding: 30px;
+  border-radius: 10px;
 }
 .relat {
   position: relative;
@@ -89,7 +91,16 @@
 }
 .addOfficer button {
   background-color: #52bd5d;
-  margin-top: 10px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 5px;
+}
+.addOfficer input {
+  border: none;
+  border-radius: 5px;
+  min-width: 20vw;
 }
 .addButton {
   background-color: #5288bd;

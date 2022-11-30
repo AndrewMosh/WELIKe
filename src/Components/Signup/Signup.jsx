@@ -66,7 +66,7 @@ export const Signup = () => {
       <div className="signup">
         <img src={signup} alt="thief" />
       </div>
-      <form method="post" onSubmit={handleSubmit}>
+      <form className="formPublic" method="post" onSubmit={handleSubmit}>
         <h2>Регистрация</h2>
         <label>
           E-mail <br />
@@ -116,7 +116,9 @@ export const Signup = () => {
             required
           />
         </label>
-        <button className="register">Зарегистрироваться</button>
+        <button style={{ width: "200px", marginTop: "15px" }}>
+          Зарегистрироваться
+        </button>
         <p style={{ textAlign: "center", marginTop: "20px" }}>{message}</p>
       </form>
     </div>
