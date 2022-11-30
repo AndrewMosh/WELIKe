@@ -73,44 +73,42 @@ export const Report = ({ admin }) => {
   }, [type]);
   return (
     <>
-      {(admin && <ForAuth />) || (
-        <div className="report">
-          <div>
-            <img src={thief} alt="thief" />
-          </div>
-          <form method="post" onSubmit={handleSubmit}>
-            <p>{message}</p>
-            <h2>Сообщить о краже</h2>
-            <label>Номер лицензии </label>
-            <input
-              onChange={handleNumber}
-              value={licenseNumber}
-              type="text"
-              required
-            />
-            <label>ФИО клиента </label>
-            <input
-              onChange={handleName}
-              value={ownerFullName}
-              type="text"
-              required
-            />
-            <label>Цвет велосипеда </label>
-            <input onChange={handleColor} value={color} type="text" />
-            <label>Дата кражи</label>
-            <input onChange={handleDate} value={date} type="date" />
-            <label>Дополнительная информация</label>
-            <input onChange={handleInfo} value={description} type="text" />
-            <label>Тип велосипеда</label>
-            <select onChange={handleType} value={type} required>
-              <option>Выберите тип велосипеда</option>
-              <option value="general">general</option>
-              <option value="sport">sport</option>
-            </select>
-            <button>Отправить</button>
-          </form>
+      <div className="report">
+        <div>
+          <img src={thief} alt="thief" />
         </div>
-      )}
+        <form className="formPublic" method="post" onSubmit={handleSubmit}>
+          <p>{message}</p>
+          <h2>Сообщить о краже</h2>
+          <label>Номер лицензии </label>
+          <input
+            onChange={handleNumber}
+            value={licenseNumber}
+            type="text"
+            required
+          />
+          <label>ФИО клиента </label>
+          <input
+            onChange={handleName}
+            value={ownerFullName}
+            type="text"
+            required
+          />
+          <label>Цвет велосипеда </label>
+          <input onChange={handleColor} value={color} type="text" />
+          <label>Дата кражи</label>
+          <input onChange={handleDate} value={date} type="date" />
+          <label>Дополнительная информация</label>
+          <input onChange={handleInfo} value={description} type="text" />
+          <label>Тип велосипеда</label>
+          <select onChange={handleType} value={type} required>
+            <option>Выберите тип велосипеда</option>
+            <option value="general">general</option>
+            <option value="sport">sport</option>
+          </select>
+          <button>Отправить</button>
+        </form>
+      </div>
     </>
   );
 };

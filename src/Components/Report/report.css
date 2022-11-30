@@ -1,4 +1,4 @@
-form {
+.formPublic {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,7 +19,7 @@ form {
 .report img {
   max-width: 100%;
 }
-form input {
+.formPublic input {
   margin: 10px;
   width: 280px;
   border: none;
@@ -27,23 +27,23 @@ form input {
   border-radius: 5px;
   padding: 10px;
 }
-form select {
+.formPublic select {
   border: none;
   margin: 10px;
   width: 280px;
   height: 40px;
 }
 
-form label {
+.formPublic label {
   text-align: center;
 }
-form h2 {
+.formPublic h2 {
   color: #2b425b;
   padding-bottom: 20px;
   margin: 0;
 }
 
-form button {
+.formPublic button {
   width: 100px;
   height: 40px;
   color: white;
@@ -52,43 +52,50 @@ form button {
   border-radius: 10px;
   cursor: pointer;
 }
-.modal {
-  border-radius: 10px;
-  display: grid;
+
+.modalForm {
+  background-color: #e2f1f6f0;
+  border-radius: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-image: url(thief.svg);
-  background-position: center;
-  background-size: contain;
-  border-radius: 10px;
-  transform: scale(0.8);
-  box-shadow: 0 0 15px 5px #3a6da0;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: auto;
 }
-.modal button {
-  transform: scale(1.4);
-  margin-top: 20px;
+.modalForm div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.modal span {
+.modalForm span {
   color: red;
   position: absolute;
   right: 20px;
-  top: 20px;
-  transform: scale(1.8);
+  top: 10px;
   cursor: pointer;
 }
-.modalForm {
-  display: flex;
-  background-color: #e2f1f6e8;
-  border-radius: 0;
-  min-width: 45vw;
+.modalForm input,
+.modalForm select {
+  border: none;
+  margin: 10px;
+  min-width: 30vw;
 }
+
 @media screen and (max-width: 500px) {
-  form {
+  .formPublic {
     width: 350px;
   }
-  form input {
+  .formPublic input {
     width: 250px;
   }
-  form select {
+  .formPublic select {
     width: 250px;
   }
 }

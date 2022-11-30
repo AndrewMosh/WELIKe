@@ -23,7 +23,6 @@
 }
 .wrapper {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   height: 70vh;
   overflow: auto;
@@ -35,7 +34,6 @@
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #407ebcf6;
-  margin: 30px;
   padding: 30px;
   align-items: center;
   justify-content: center;
@@ -43,7 +41,8 @@
   box-shadow: 0 0 5px 5px #5287bd;
   position: fixed;
   top: 0;
-  max-width: 90vw;
+  width: 100%;
+  height: 100%;
 }
 .modalContainer {
   display: flex;

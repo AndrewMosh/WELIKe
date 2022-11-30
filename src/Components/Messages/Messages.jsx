@@ -48,6 +48,7 @@ export const Messages = ({ approved, setApproved }) => {
           >
             Добавить сообщение
           </button>
+
           {newMessage && (
             <ForAuth
               newMessage={newMessage}

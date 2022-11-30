@@ -104,15 +104,16 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
               />
               <label>Идент.номер:</label>
               <input type="text" value={officer._id} disabled />
-              <label>Одобрен</label>
-              <input
-                className="approved"
-                type="checkbox"
-                value={approved}
-                disabled={!editMode ? true : false}
-                checked={approved}
-                onChange={() => setApproved(!approved)}
-              />
+              <div className="approved">
+                <label>Одобрен</label>
+                <input
+                  type="checkbox"
+                  value={approved}
+                  disabled={!editMode ? true : false}
+                  checked={approved}
+                  onChange={() => setApproved(!approved)}
+                />
+              </div>
               <div className="butts">
                 {(!editMode && (
                   <button className="edit" onClick={handleEdit}>

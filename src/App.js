@@ -44,7 +44,6 @@ function App() {
         if (response.data.data.user.approved === true) {
           setAdmin(!admin);
           localStorage.setItem("admin", true);
-          console.log(" admin in App when authorised is " + admin);
         }
       })
       .catch((error) => {

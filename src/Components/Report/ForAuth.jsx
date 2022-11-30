@@ -94,48 +94,56 @@ export const ForAuth = ({
   };
 
   return (
-    <div className="modal">
-      <span onClick={() => setNewMessage(!newMessage)}>X</span>
-      <form className="modalForm" method="post" onSubmit={handleSubmit}>
+    <form className="modalForm" method="post" onSubmit={handleSubmit}>
+      <div>
+        <span onClick={() => setNewMessage(!newMessage)}>X</span>
         <h2>Сообщить о краже</h2>
         <p>{message}</p>
-        <label>Номер лицензии </label>
-        <input
-          onChange={handleNumber}
-          value={licenseNumber}
-          type="text"
-          required
-        />
-        <label>ФИО клиента </label>
-        <input
-          onChange={handleName}
-          value={ownerFullName}
-          type="text"
-          required
-        />
-        <label>Цвет велосипеда </label>
-        <input onChange={handleColor} value={color} type="text" />
-        <label>Дата кражи</label>
-        <input onChange={handleDate} value={date} type="date" />
-        <label>Дополнительная информация</label>
-        <input onChange={handleInfo} value={description} type="text" />
-        <label>Тип велосипеда</label>
-        <select onChange={handleType} value={type} required>
-          <option>Выберите тип велосипеда</option>
-          <option value="general">general</option>
-          <option value="sport">sport</option>
-        </select>
-        <label>Ответственный сотрудник</label>
-        <select onChange={handleOfficer} value={officer}>
-          <option>Выберите сотрудника</option>
-          {listOfApproved.map((officer) => (
-            <option key={officer._id} value={officer._id}>
-              {officer.firstName} {officer.lastName}
-            </option>
-          ))}
-        </select>
+        <div>
+          <label>Номер лицензии</label>
+          <input
+            onChange={handleNumber}
+            value={licenseNumber}
+            type="text"
+            required
+          />
+          <label>ФИО клиента</label>
+          <input
+            onChange={handleName}
+            value={ownerFullName}
+            type="text"
+            required
+          />
+        </div>
+        <div>
+          <label>Цвет велосипеда </label>
+          <input onChange={handleColor} value={color} type="text" />
+          <label>Дата кражи</label>
+          <input onChange={handleDate} value={date} type="date" />
+        </div>
+        <div>
+          <label>Дополнительная информация</label>
+          <input onChange={handleInfo} value={description} type="text" />
+          <label>Тип велосипеда </label>
+          <select onChange={handleType} value={type} required>
+            <option>Выберите тип велосипеда</option>
+            <option value="general">general</option>
+            <option value="sport">sport</option>
+          </select>
+        </div>
+        <div>
+          <label>Ответственный сотрудник </label>
+          <select onChange={handleOfficer} value={officer}>
+            <option>Выберите сотрудника</option>
+            {listOfApproved.map((officer) => (
+              <option key={officer._id} value={officer._id}>
+                {officer.firstName} {officer.lastName}
+              </option>
+            ))}
+          </select>
+        </div>
         <button type="submit">Отправить</button>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };

@@ -30,7 +30,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   background-color: #406d9a00;
-  padding: 0;
+  padding: 20px 0 0 0;
   max-width: 50vw;
 }
 .surname input {
@@ -85,9 +85,16 @@ h3 {
   text-decoration: none;
 }
 .approved {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  top: 3%;
+  right: 40%;
+  padding-top: 10px;
+}
+.approved input {
+  transform: scale(2);
+}
+.approved label {
+  padding-right: 10px;
 }
 .delete {
   border: none;

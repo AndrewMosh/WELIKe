@@ -21,7 +21,7 @@ export const Signin = ({
           <div className="signin">
             <img src={signin} alt="thief" />
           </div>
-          <form onSubmit={handleSubmit}>
+          <form className="formPublic" onSubmit={handleSubmit}>
             <h2>Авторизация</h2>
             <label>E-mail</label>
             <input
