@@ -6,15 +6,20 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect } from "react";
 
-const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
-  const handleClick = () => {
-    if (data.data.user.approved === true) {
-      setAdmin(!admin);
+const Header = ({ admin, setAdmin }) => {
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("admin");
+    if (loggedInUser) {
+      setAdmin(loggedInUser);
     }
-    setAuth(!isAuth);
+  }, []);
+
+  const handleClick = () => {
+    setAdmin(!admin);
     localStorage.removeItem("token");
-    console.log(admin);
+    localStorage.removeItem("admin");
   };
 
   return (
@@ -30,7 +35,7 @@ const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
           <Nav>
-            {admin && isAuth && (
+            {admin && (
               <>
                 <Link className="link" to={"/officers"}>
                   <li>Ответственный сотрудник</li>
@@ -40,14 +45,12 @@ const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
                 </Link>
               </>
             )}
-            {!admin && (
-              <Link className="link" to={"/public/report"}>
-                <li>Сообщить о краже</li>
-              </Link>
-            )}
-
-            {(!isAuth && (
+            {(!admin && (
               <>
+                <Link className="link" to={"/public/report"}>
+                  <li>Сообщить о краже</li>
+                </Link>
+
                 <Link className="link" to={"/auth/sign_up"}>
                   <li>Регистрация</li>
                 </Link>
@@ -57,7 +60,6 @@ const Header = ({ isAuth, setAuth, admin, setAdmin, data }) => {
               </>
             )) || (
               <>
-                <li style={{ cursor: "default" }}>{data.data.user.email}</li>
                 <Link className="link" to={"/"}>
                   <li onClick={handleClick}>Выйти</li>
                 </Link>

@@ -5,7 +5,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { ForAuth } from "./ForAuth";
 
-export const Report = ({ isAuth, admin }) => {
+export const Report = ({ admin }) => {
   const [licenseNumber, setLicenseNumber] = useState("");
   const [ownerFullName, setOwnerFullName] = useState("");
   const [color, setColor] = useState("");
@@ -73,7 +73,7 @@ export const Report = ({ isAuth, admin }) => {
   }, [type]);
   return (
     <>
-      {(isAuth && admin && <ForAuth />) || (
+      {(admin && <ForAuth />) || (
         <div className="report">
           <div>
             <img src={thief} alt="thief" />
@@ -102,13 +102,8 @@ export const Report = ({ isAuth, admin }) => {
             <label>Дополнительная информация</label>
             <input onChange={handleInfo} value={description} type="text" />
             <label>Тип велосипеда</label>
-            <select
-              onChange={handleType}
-              value={type}
-              defaultValue={"default"}
-              required
-            >
-              <option value="default">Выберите тип велосипеда</option>
+            <select onChange={handleType} value={type} required>
+              <option>Выберите тип велосипеда</option>
               <option value="general">general</option>
               <option value="sport">sport</option>
             </select>

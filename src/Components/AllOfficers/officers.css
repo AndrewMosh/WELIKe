@@ -3,7 +3,7 @@
   text-align: center;
 }
 .pic img {
-  max-width: 90%;
+  max-width: 50%;
 }
 .officers {
   display: flex;

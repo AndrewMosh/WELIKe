@@ -120,23 +120,14 @@ export const ForAuth = ({
         <label>Дополнительная информация</label>
         <input onChange={handleInfo} value={description} type="text" />
         <label>Тип велосипеда</label>
-        <select
-          onChange={handleType}
-          value={type}
-          defaultValue={"default"}
-          required
-        >
-          <option value="default">Выберите тип велосипеда</option>
+        <select onChange={handleType} value={type} required>
+          <option>Выберите тип велосипеда</option>
           <option value="general">general</option>
           <option value="sport">sport</option>
         </select>
         <label>Ответственный сотрудник</label>
-        <select
-          onChange={handleOfficer}
-          defaultValue={"default"}
-          value={officer}
-        >
-          <option value="default">Выберите сотрудника</option>
+        <select onChange={handleOfficer} value={officer}>
+          <option>Выберите сотрудника</option>
           {listOfApproved.map((officer) => (
             <option key={officer._id} value={officer._id}>
               {officer.firstName} {officer.lastName}

@@ -31,7 +31,9 @@ export const Messages = ({ approved, setApproved }) => {
   useEffect(() => {
     allMessages();
   }, [detail]);
-
+  useEffect(() => {
+    allMessages();
+  }, [newMessage]);
   return (
     <div>
       <div className="pic">
@@ -59,6 +61,9 @@ export const Messages = ({ approved, setApproved }) => {
               <span
                 className="new"
                 style={{
+                  textAlign: "center",
+                  borderRadius: "10px",
+                  minWidth: "90px",
                   backgroundColor:
                     (item.status === "new" && "green") ||
                     (item.status === "in_progress" && "gold") ||

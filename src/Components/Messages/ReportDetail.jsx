@@ -43,6 +43,10 @@ export const ReportDetail = ({
     allWorkers();
   }, [editMode]);
 
+  useEffect(() => {
+    console.log(detail);
+  }, [detail]);
+
   const handleOfficer = (e) => {
     const chosenId = e.target.value;
     const chosenPerson = approved.filter((p) => p._id === chosenId)[0];
@@ -148,7 +152,6 @@ export const ReportDetail = ({
             Дата кражи
             <br />
             <input
-              type="text"
               onChange={(e) => setDate(e.target.value)}
               value={date}
               style={{

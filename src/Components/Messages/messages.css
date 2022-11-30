@@ -92,7 +92,7 @@
   color: white;
   position: absolute;
   bottom: -5px;
-  left: 15px;
+  right: 15px;
 }
 .saveDetail {
   background-color: #c6b518;
@@ -105,7 +105,7 @@
   color: white;
   position: absolute;
   bottom: -5px;
-  left: 15px;
+  right: 15px;
 }
 .modalDetail span {
   color: white;
@@ -141,5 +141,5 @@
   color: white;
   position: absolute;
   bottom: -5px;
-  right: 15px;
+  left: 15px;
 }

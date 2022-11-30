@@ -30,7 +30,6 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
           firstName: firstName,
           lastName: lastName,
           approved: approved,
-          password: password,
         },
         {
           headers: {
@@ -79,7 +78,7 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
               </span>
             </Link>
 
-            <form className="surname" onSubmit={handleSubmit}>
+            <form className="surname">
               <label htmlFor="">Имя:</label>
               <input
                 onChange={(e) => setName(e.target.value)}
@@ -116,10 +115,14 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
               />
               <div className="butts">
                 {(!editMode && (
-                  <button className="edit" onSubmit={handleEdit}>
+                  <button className="edit" onClick={handleEdit}>
                     редактировать
                   </button>
-                )) || <button className="saveRedact">сохранить</button>}
+                )) || (
+                  <button className="saveRedact" onClick={handleSubmit}>
+                    сохранить
+                  </button>
+                )}
                 <button className="delete" onClick={handleDelete}>
                   Удалить
                 </button>
