@@ -8,9 +8,9 @@
 .officers {
   display: flex;
   flex-direction: column;
-  max-height: 60vh;
+  max-height: 55vh;
   overflow: auto;
-  margin: 50px;
+  margin: 10px;
 
   padding: 20px;
   border-radius: 15px;
@@ -19,7 +19,7 @@
 .title {
   text-align: center;
   margin: 0;
-  padding: 15px 0;
+  padding: 10px 0;
   color: white;
   background-color: #5288bd;
 }
@@ -108,7 +108,7 @@
   border: none;
   border-radius: 15px;
   padding: 10px 20px;
-  margin-bottom: 20px;
+  margin: 20px;
 }
 .loading {
   color: #3273b4;

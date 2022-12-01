@@ -7,13 +7,14 @@
   padding: 30px;
   width: 450px;
   border-radius: 10px;
+  transform: scale(0.9);
 }
 .report {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 50px 0 100px 0;
+  margin: 20px 0 100px 0;
   gap: 100px;
 }
 .report img {

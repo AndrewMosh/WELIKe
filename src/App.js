@@ -100,6 +100,7 @@ function App() {
             element={<Messages approved={approved} setApproved={setApproved} />}
           ></Route>
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

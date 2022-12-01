@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Playfair";
+  src: url("fonts/static/PlayfairDisplay-Black.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
 body {
   margin: 0;
   font-family: "Playfair";

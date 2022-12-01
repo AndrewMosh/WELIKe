@@ -4,7 +4,11 @@
   border-radius: 2px;
   margin-right: 20px;
 }
-
+.messageContainer {
+  max-height: 55vh;
+  overflow: auto;
+  margin-bottom: 50px;
+}
 .message {
   display: flex;
   margin: 15px;
@@ -23,10 +27,10 @@
 }
 .wrapper {
   display: flex;
-  flex-wrap: wrap;
-  height: 70vh;
-  overflow: auto;
+  flex-wrap: no-wrap;
   position: relative;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .modalDetail {

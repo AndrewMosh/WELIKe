@@ -29,6 +29,7 @@ export const Messages = ({ approved, setApproved }) => {
     );
     setLoading(false);
     setCases(result.data.data);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -44,24 +45,28 @@ export const Messages = ({ approved, setApproved }) => {
       </div>
       <h3 className="title">Все сообщения о кражах</h3>
       <div className="wrapper">
-        <div>
-          <button
-            className="addMessage"
-            onClick={() => setNewMessage(!newMessage)}
-          >
-            Добавить сообщение
-          </button>
+        <button
+          className="addMessage"
+          onClick={() => setNewMessage(!newMessage)}
+        >
+          Добавить сообщение
+        </button>
 
-          {(loading && <div className="loading">loading...</div>) ||
-            (cases.length === 0 && <div></div>) ||
-            (newMessage && (
-              <ForAuth
-                newMessage={newMessage}
-                setNewMessage={setNewMessage}
-                approved={approved}
-                setApproved={setApproved}
-              />
-            ))}
+        {(loading && (
+          <div className="loading" style={{ alignSelf: "center" }}>
+            loading...
+          </div>
+        )) ||
+          (cases.length === 0 && <div></div>) ||
+          (newMessage && (
+            <ForAuth
+              newMessage={newMessage}
+              setNewMessage={setNewMessage}
+              approved={approved}
+              setApproved={setApproved}
+            />
+          ))}
+        <div className="messageContainer">
           {cases.map((item) => (
             <div key={item._id} className="message">
               <span

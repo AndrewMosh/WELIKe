@@ -106,9 +106,11 @@ export const AllOfficers = ({ setApproved }) => {
               </div>
             ))}
         </ol>
-        <button className="addButton" onClick={handleAdd}>
-          Добавить сотрудника
-        </button>
+        {(info.length === 0 && <div></div>) || (
+          <button className="addButton" onClick={handleAdd}>
+            Добавить сотрудника
+          </button>
+        )}
         {(newWorker && (
           <form method="post" className="addOfficer" onSubmit={handleSubmit}>
             <div className="relat">
