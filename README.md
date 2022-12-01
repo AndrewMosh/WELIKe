@@ -4,7 +4,7 @@
 
 ## О приложении
 
-Известная компания, занимающаяся прокатом велосипедов в крупных городах России, испытывает проблемы с частой кражей их имущества (велосипедов). Как возможное решение проблемы, компания хочет вести учёт этих случаев и отслеживать прогресс. Их собственные разработчики уже подготовили серверную часть приложения, вам же требуется реализовать клиентскую часть.
+Известная компания, занимающаяся прокатом велосипедов в крупных городах России, испытывает проблемы с частой кражей их имущества (велосипедов). Как возможное решение проблемы, компания хочет вести учёт этих случаев и отслеживать прогресс. Их собственные разработчики уже подготовили серверную часть приложения, мной реализована клиентская часть.
 Клиентская часть предназначена как для сотрудников компании, так и для обычных пользователей. Обычному пользователю доступна только ограниченная часть функционала: главная страница и страница с возможностью сообщить о новом случае кражи.
 
 ## Основыне инструменты разработчика
@@ -21,6 +21,6 @@
 
 ## Интерфейс приложения
 
-<img align="center" alt="Канбанчик" src="https://github.com/AndrewMosh/Final-project-exam-/blob/master/src/Components/assets/welik1.png">
-<img align="center" alt="Канбанчик" src="https://github.com/AndrewMosh/Final-project-exam-/blob/master/src/Components/assets/welik2.png>
-<img align="center" alt="Канбанчик" src="https://github.com/AndrewMosh/Final-project-exam-/blob/master/src/Components/assets/welik3.png">
+<img align="center" alt="not authorised" src="https://github.com/AndrewMosh/Final-project-exam-/blob/master/src/Components/assets/welik1.png">
+<img align="center" alt="authorised" src="https://github.com/AndrewMosh/Final-project-exam-/blob/master/src/Components/assets/welik2.png">
+<img align="center" alt="details" src="https://github.com/AndrewMosh/Final-project-exam-/blob/master/src/Components/assets/welik3.png">
