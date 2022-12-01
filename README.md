@@ -24,3 +24,6 @@
 <img align="center" alt="not authorised" src="https://github.com/AndrewMosh/Final-project-exam-/blob/master/src/Components/assets/welik1.png">
 <img align="center" alt="authorised" src="https://github.com/AndrewMosh/Final-project-exam-/blob/master/src/Components/assets/welik2.png">
 <img align="center" alt="details" src="https://github.com/AndrewMosh/Final-project-exam-/blob/master/src/Components/assets/welik3.png">
+
+<br/>
+[Изображения были взяты на сайте]: http://www.freepik.com"
