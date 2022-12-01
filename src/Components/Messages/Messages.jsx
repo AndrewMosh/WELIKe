@@ -29,7 +29,6 @@ export const Messages = ({ approved, setApproved }) => {
     );
     setLoading(false);
     setCases(result.data.data);
-    setLoading(false);
   };
 
   useEffect(() => {

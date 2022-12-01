@@ -52,7 +52,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="App">
       <Router>
         <Header admin={admin} setAdmin={setAdmin} />
         <Routes>

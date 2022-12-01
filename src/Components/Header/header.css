@@ -1,6 +1,7 @@
 nav {
   background-color: #5288bd;
   color: white;
+  font-weight: bold;
 }
 nav li {
   padding: 10px;

@@ -95,7 +95,7 @@
   border-radius: 10px;
   color: white;
   position: absolute;
-  bottom: -5px;
+  top: -5px;
   right: 15px;
 }
 .saveDetail {
@@ -108,15 +108,17 @@
   border-radius: 10px;
   color: white;
   position: absolute;
-  bottom: -5px;
+  top: -5px;
   right: 15px;
 }
 .modalDetail span {
-  color: white;
+  color: red;
   position: absolute;
-  top: 20px;
+  top: 70px;
   right: 30px;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .active {
@@ -144,6 +146,6 @@
   border-radius: 10px;
   color: white;
   position: absolute;
-  bottom: -5px;
+  top: -5px;
   left: 15px;
 }

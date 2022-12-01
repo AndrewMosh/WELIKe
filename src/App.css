@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Playfair";
+  src: url("fonts/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+.App {
+  font-family: "Playfair";
+}

@@ -107,10 +107,11 @@ export const ForAuth = ({
 
   return (
     <form className="modalForm" method="post" onSubmit={handleSubmit}>
-      <div>
+      <h2>Сообщить о краже</h2>
+      <p>{message}</p>
+      <div className="modalSubContainer">
         <span onClick={() => setNewMessage(!newMessage)}>X</span>
-        <h2>Сообщить о краже</h2>
-        <p>{message}</p>
+
         <div>
           <label>Ответственный сотрудник </label>
           <select onChange={handleOfficer} value={officer}>
