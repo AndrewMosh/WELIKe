@@ -196,7 +196,6 @@ export const ReportDetail = ({
             <br />
             <select
               value={officer}
-              defaultValue={"default"}
               onChange={handleOfficer}
               style={{
                 color: editMode && "black",
@@ -204,7 +203,7 @@ export const ReportDetail = ({
               }}
               disabled={!editMode ? true : false}
             >
-              <option value={"default"}>{officer}</option>
+              <option value="">{officer}</option>
               {listOfApproved.map((officer) => (
                 <option key={officer._id} value={officer._id}>
                   {officer.firstName} {officer.lastName}

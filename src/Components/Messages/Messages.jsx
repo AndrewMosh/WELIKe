@@ -12,11 +12,13 @@ export const Messages = ({ approved, setApproved }) => {
   const [cases, setCases] = useState([]);
   const [detail, setDetail] = useState(false);
   const [newMessage, setNewMessage] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleDetail = () => {
     setDetail(!detail);
   };
   const allMessages = async () => {
+    setLoading(true);
     const result = await axios.get(
       "https://skillfactory-final-project.herokuapp.com/api/cases/",
       {
@@ -25,6 +27,7 @@ export const Messages = ({ approved, setApproved }) => {
         },
       }
     );
+    setLoading(false);
     setCases(result.data.data);
   };
 
@@ -49,14 +52,16 @@ export const Messages = ({ approved, setApproved }) => {
             Добавить сообщение
           </button>
 
-          {newMessage && (
-            <ForAuth
-              newMessage={newMessage}
-              setNewMessage={setNewMessage}
-              approved={approved}
-              setApproved={setApproved}
-            />
-          )}
+          {(loading && <div className="loading">loading...</div>) ||
+            (cases.length === 0 && <div></div>) ||
+            (newMessage && (
+              <ForAuth
+                newMessage={newMessage}
+                setNewMessage={setNewMessage}
+                approved={approved}
+                setApproved={setApproved}
+              />
+            ))}
           {cases.map((item) => (
             <div key={item._id} className="message">
               <span

@@ -67,6 +67,8 @@
   align-items: center;
   flex-wrap: wrap;
   overflow: auto;
+  box-shadow: inset 0 0 40px #3a6da0;
+  border-radius: 15px;
 }
 .modalForm div {
   display: flex;
@@ -86,6 +88,21 @@
   border: none;
   margin: 10px;
   min-width: 30vw;
+}
+.modalForm button {
+  border: none;
+  background-color: #3a6da0;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  color: white;
+}
+input:invalid,
+select:invalid {
+  background-color: ivory;
+  border: none;
+  outline: 2px solid rgba(255, 0, 0, 0.478);
+  border-radius: 5px;
 }
 
 @media screen and (max-width: 500px) {

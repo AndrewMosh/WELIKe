@@ -3,9 +3,8 @@ import thief from "./thief.svg";
 import "./report.css";
 import axios from "axios";
 import { useEffect } from "react";
-import { ForAuth } from "./ForAuth";
 
-export const Report = ({ admin }) => {
+export const Report = () => {
   const [licenseNumber, setLicenseNumber] = useState("");
   const [ownerFullName, setOwnerFullName] = useState("");
   const [color, setColor] = useState("");
@@ -65,7 +64,6 @@ export const Report = ({ admin }) => {
       })
       .catch((err) => {
         console.log(err);
-        setMessage("Выберите тип велосипеда");
       });
   };
   useEffect(() => {
@@ -80,14 +78,14 @@ export const Report = ({ admin }) => {
         <form className="formPublic" method="post" onSubmit={handleSubmit}>
           <p>{message}</p>
           <h2>Сообщить о краже</h2>
-          <label>Номер лицензии </label>
+          <label>Номер лицензии* </label>
           <input
             onChange={handleNumber}
             value={licenseNumber}
             type="text"
             required
           />
-          <label>ФИО клиента </label>
+          <label>ФИО клиента* </label>
           <input
             onChange={handleName}
             value={ownerFullName}
@@ -100,9 +98,9 @@ export const Report = ({ admin }) => {
           <input onChange={handleDate} value={date} type="date" />
           <label>Дополнительная информация</label>
           <input onChange={handleInfo} value={description} type="text" />
-          <label>Тип велосипеда</label>
+          <label>Тип велосипеда*</label>
           <select onChange={handleType} value={type} required>
-            <option>Выберите тип велосипеда</option>
+            <option value="">Выберите тип велосипеда</option>
             <option value="general">general</option>
             <option value="sport">sport</option>
           </select>

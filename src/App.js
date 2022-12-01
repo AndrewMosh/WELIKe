@@ -9,7 +9,6 @@ import { Signin } from "./Components/Signin/Signin";
 import { Report } from "./Components/Report/Report";
 import { AllOfficers } from "./Components/AllOfficers/AllOfficers";
 import { Messages } from "./Components/Messages/Messages";
-
 import axios from "axios";
 
 function App() {
@@ -40,15 +39,15 @@ function App() {
       .then((response) => {
         setData(response.data);
         localStorage.setItem("token", response.data.data.token);
-
+        console.log(response);
         if (response.data.data.user.approved === true) {
           setAdmin(!admin);
           localStorage.setItem("admin", true);
         }
+        setMessage("");
       })
       .catch((error) => {
-        console.log(error);
-        setMessage(error.message);
+        setMessage("Вы ввели неверный логин или пароль");
       });
   };
 

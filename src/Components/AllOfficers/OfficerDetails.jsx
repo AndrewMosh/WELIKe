@@ -100,7 +100,7 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 value={password}
-                disabled={!editMode ? true : false}
+                disabled
               />
               <label>Идент.номер:</label>
               <input type="text" value={officer._id} disabled />
@@ -125,7 +125,7 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
                   </button>
                 )}
                 <button className="delete" onClick={handleDelete}>
-                  Удалить
+                  удалить
                 </button>
               </div>
             </form>

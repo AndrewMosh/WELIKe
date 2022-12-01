@@ -54,8 +54,20 @@ export const ForAuth = ({
     setType(type);
   }, [type]);
   useEffect(() => {
-    setApproved(approved);
-  }, [approved]);
+    allWorkers();
+  }, [newMessage]);
+
+  const allWorkers = async () => {
+    const result = await axios.get(
+      "https://skillfactory-final-project.herokuapp.com/api/officers/",
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      }
+    );
+    setApproved(result.data.officers);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -100,6 +112,17 @@ export const ForAuth = ({
         <h2>Сообщить о краже</h2>
         <p>{message}</p>
         <div>
+          <label>Ответственный сотрудник </label>
+          <select onChange={handleOfficer} value={officer}>
+            <option>Выберите сотрудника</option>
+            {listOfApproved.map((officer) => (
+              <option key={officer._id} value={officer._id}>
+                {officer.firstName} {officer.lastName}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
           <label>Номер лицензии</label>
           <input
             onChange={handleNumber}
@@ -126,20 +149,9 @@ export const ForAuth = ({
           <input onChange={handleInfo} value={description} type="text" />
           <label>Тип велосипеда </label>
           <select onChange={handleType} value={type} required>
-            <option>Выберите тип велосипеда</option>
+            <option value="">Выберите тип велосипеда</option>
             <option value="general">general</option>
             <option value="sport">sport</option>
-          </select>
-        </div>
-        <div>
-          <label>Ответственный сотрудник </label>
-          <select onChange={handleOfficer} value={officer}>
-            <option>Выберите сотрудника</option>
-            {listOfApproved.map((officer) => (
-              <option key={officer._id} value={officer._id}>
-                {officer.firstName} {officer.lastName}
-              </option>
-            ))}
           </select>
         </div>
         <button type="submit">Отправить</button>

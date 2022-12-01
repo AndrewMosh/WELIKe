@@ -5,22 +5,23 @@ import staff from "./officers.svg";
 import "./officers.css";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import { OfficerDetails } from "./OfficerDetails";
 
-export const AllOfficers = ({ approved, setApproved }) => {
+export const AllOfficers = ({ setApproved }) => {
   //состояния для регистрации нового сотрудника
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState();
   const [firstName, setName] = useState("");
   const [lastName, setSurname] = useState("");
   const [info, setInfo] = useState([]);
   const [newWorker, setNewWorker] = useState(false);
   const [detail, setDetail] = useState(false);
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   //загружаем список всех сотрудников
   const allWorkers = async () => {
+    setLoading(true);
     const result = await axios.get(
       "https://skillfactory-final-project.herokuapp.com/api/officers/",
       {
@@ -29,6 +30,7 @@ export const AllOfficers = ({ approved, setApproved }) => {
         },
       }
     );
+    setLoading(false);
     setInfo(result.data.officers);
     setApproved(result.data.officers);
   };
@@ -91,17 +93,18 @@ export const AllOfficers = ({ approved, setApproved }) => {
       <h2 className="title">Список всех зарегистрированных сотрудников</h2>
       <div className="officerContainer">
         <ol className="officers">
-          {info.map((worker) => (
-            <div key={worker._id} className="approve">
-              <Link
-                onClick={() => setDetail(!detail)}
-                className="link"
-                to={`/officers/${worker._id}`}
-              >
-                <li>{worker.email}</li>
-              </Link>
-            </div>
-          ))}
+          {(loading && <div className="loading">loading...</div>) ||
+            info.map((worker) => (
+              <div key={worker._id} className="approve">
+                <Link
+                  onClick={() => setDetail(!detail)}
+                  className="link"
+                  to={`/officers/${worker._id}`}
+                >
+                  <li>{worker.email}</li>
+                </Link>
+              </div>
+            ))}
         </ol>
         <button className="addButton" onClick={handleAdd}>
           Добавить сотрудника

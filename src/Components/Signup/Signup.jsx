@@ -69,7 +69,7 @@ export const Signup = () => {
       <form className="formPublic" method="post" onSubmit={handleSubmit}>
         <h2>Регистрация</h2>
         <label>
-          E-mail <br />
+          E-mail* <br />
           <input
             onChange={changeMail}
             type="text"
@@ -79,7 +79,7 @@ export const Signup = () => {
           />
         </label>
         <label>
-          Пароль <br />
+          Пароль* <br />
           <input
             onChange={changePassword}
             type="password"
@@ -107,7 +107,7 @@ export const Signup = () => {
           />
         </label>
         <label>
-          Client ID <br />{" "}
+          Client ID* <br />{" "}
           <input
             onChange={changeId}
             type="text"
