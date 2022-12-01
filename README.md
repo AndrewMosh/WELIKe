@@ -26,4 +26,5 @@
 <img align="center" alt="details" src="https://github.com/AndrewMosh/Final-project-exam-/blob/master/src/Components/assets/welik3.png">
 
 <br/>
-[Изображения были взяты на сайте]: http://www.freepik.com"
+
+[Изображения были взяты на сайте](: http://www.freepik.com)
