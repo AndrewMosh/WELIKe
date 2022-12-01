@@ -76,7 +76,7 @@ export const Messages = ({ approved, setApproved }) => {
                   minWidth: "90px",
                   backgroundColor:
                     (item.status === "new" && "green") ||
-                    (item.status === "in_progress" && "gold") ||
+                    (item.status === "in_progress" && "rgb(209, 130, 19)") ||
                     (item.status === "done" && "red"),
                 }}
               >
