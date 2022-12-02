@@ -33,10 +33,8 @@ export const Messages = ({ approved, setApproved }) => {
 
   useEffect(() => {
     allMessages();
-  }, [detail]);
-  useEffect(() => {
-    allMessages();
-  }, [newMessage]);
+  }, [detail, newMessage]);
+
   return (
     <div>
       <div className="pic">

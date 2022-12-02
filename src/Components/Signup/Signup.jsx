@@ -15,6 +15,9 @@ export const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (password !== "b0c95434-4afe-4ff5-9cda-4c8b4d1a5586") {
+      setMessage("Введите валидный Id Client");
+    }
     axios
       .post(
         "https://skillfactory-final-project.herokuapp.com/api/auth/sign_up",

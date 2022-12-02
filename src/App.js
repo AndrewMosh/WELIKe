@@ -15,15 +15,16 @@ function App() {
   const [data, setData] = useState([]);
   const [approved, setApproved] = useState([]);
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState(false);
+  const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [admin, setAdmin] = useState(
     localStorage.getItem(localStorage.getItem("admin") || false)
   );
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setLoading(true);
     axios
       .post(
         "https://skillfactory-final-project.herokuapp.com/api/auth/sign_in",
@@ -37,6 +38,7 @@ function App() {
       )
 
       .then((response) => {
+        setLoading(false);
         setData(response.data);
         localStorage.setItem("token", response.data.data.token);
         console.log(response);
@@ -72,6 +74,7 @@ function App() {
                 message={message}
                 email={email}
                 handleSubmit={handleSubmit}
+                loading={loading}
               />
             }
           ></Route>
