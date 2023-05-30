@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import thief from "./thief.svg";
 import "./report.css";
 import axios from "axios";
-import { useEffect } from "react";
-
+import { id } from "../../utils/clientId";
 export const Report = () => {
   const [licenseNumber, setLicenseNumber] = useState("");
   const [ownerFullName, setOwnerFullName] = useState("");
@@ -46,7 +45,7 @@ export const Report = () => {
           ownerFullName: ownerFullName,
           licenseNumber: licenseNumber,
           type: type,
-          clientId: "b0c95434-4afe-4ff5-9cda-4c8b4d1a5586",
+          clientId: id,
           color: color,
           date: date,
           description: description,
@@ -66,9 +65,7 @@ export const Report = () => {
         console.log(err);
       });
   };
-  useEffect(() => {
-    console.log(type);
-  }, [type]);
+
   return (
     <>
       <div className="report">
