@@ -1,14 +1,16 @@
 import React from "react";
 import "./offdetails.css";
-
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-
-export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
+import { useDispatch, useSelector } from "react-redux/es/exports";
+import { allWorkers } from "../../store/officersSlice";
+export const OfficerDetails = ({ detail, setDetail }) => {
+  const { officers } = useSelector((state) => state.officers);
+  const dispatch = useDispatch();
   const { id } = useParams();
-  let officer = info.find(({ _id }) => _id === id);
+  let officer = officers.find(({ _id }) => _id === id);
   const [editMode, setEdit] = useState(false);
   const [password, setPassword] = useState("");
   const [firstName, setName] = useState(officer.firstName);
@@ -40,11 +42,11 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
       )
       .then((res) => {
         console.log(res);
-        allWorkers();
       })
       .catch((err) => {
         console.log(err);
       });
+    dispatch(allWorkers());
   };
 
   //удаляем сотрудника
@@ -60,7 +62,7 @@ export const OfficerDetails = ({ detail, setDetail, info, allWorkers }) => {
         }
       )
       .then((res) => {
-        allWorkers();
+        dispatch(allWorkers());
         setDetail(!detail);
       })
       .catch((err) => {

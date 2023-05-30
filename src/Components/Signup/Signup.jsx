@@ -3,8 +3,9 @@ import { useState } from "react";
 import signup from "./signup.svg";
 import "../Report/report.css";
 import "./signup.css";
-import axios from "axios";
-
+import { registerUser } from "../../store/userSlice";
+import { useDispatch } from "react-redux";
+import { id } from "../../utils/clientId";
 export const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,40 +13,20 @@ export const Signup = () => {
   const [lastName, setLastName] = useState("");
   const [clientId, setClientId] = useState("");
   const [message, setMessage] = useState("");
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password !== "b0c95434-4afe-4ff5-9cda-4c8b4d1a5586") {
+    if (password !== id) {
       setMessage("Введите валидный Id Client");
     }
-    axios
-      .post(
-        "https://skillfactory-final-project.herokuapp.com/api/auth/sign_up",
-        { email, password, firstName, lastName, clientId },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      .then(
-        (response) => {
-          setEmail("");
-          setPassword("");
-          setFirstName("");
-          setLastName("");
-          setClientId("");
-          setMessage("Поздравлем! Вы зарегистрированы!");
-          console.log(response);
-        },
-        {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        }
-      )
-      .catch((error) => {
-        setMessage(error.response.data.message);
-      });
+    dispatch(registerUser({ email, password, firstName, lastName, clientId }));
+    setEmail("");
+    setPassword("");
+    setFirstName("");
+    setLastName("");
+    setClientId("");
+    setMessage("Поздравлем! Вы зарегистрированы!");
   };
 
   const changeMail = (e) => {
