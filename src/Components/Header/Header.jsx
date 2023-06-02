@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="prime" variant="dark">
       <Container>
-        <Link className="logoLink" to={"/"}>
+        <Link className="logoLink" to={"/WELIKe"}>
           <div className="size">
             <img width={50} height={40} src={logo} alt="" />
             WELIKe
@@ -38,7 +38,7 @@ const Header = () => {
                 <Link className="link" to={"/cases/"}>
                   <li>Все кражи</li>
                 </Link>
-                <Link className="link" to={"/"}>
+                <Link className="link" to={"/WELIKe"}>
                   <li onClick={handleClick}>Выйти</li>
                 </Link>
               </>

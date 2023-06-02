@@ -16,7 +16,7 @@ import { Messages } from "./Components/Messages/Messages";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/WELIKe",
     element: (
       <>
         <Header />
