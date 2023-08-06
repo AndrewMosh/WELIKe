@@ -10,7 +10,7 @@ const Footer = () => {
           <FaTelegram size="2rem" /> <FaWhatsapp size="2rem" />
         </div>
         <div>
-          <b>Pаботу выполнил Мощенко А.</b>
+          <b>Pаботу выполнил Мощенков А.</b>
         </div>
         <div>
           <FaPhone size="1rem" /> +7535676539
