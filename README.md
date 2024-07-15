@@ -1,28 +1,30 @@
-# Реализация клиентской части сайта
+# React + TypeScript + Vite
 
-## О приложении
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Известная компания, занимающаяся прокатом велосипедов в крупных городах России, испытывает проблемы с частой кражей их имущества (велосипедов). Как возможное решение проблемы, компания хочет вести учёт этих случаев и отслеживать прогресс. Их собственные разработчики уже подготовили серверную часть приложения, мной реализована клиентская часть.
-Клиентская часть предназначена как для сотрудников компании, так и для обычных пользователей. Обычному пользователю доступна только ограниченная часть функционала: главная страница и страница с возможностью сообщить о новом случае кражи.
+Currently, two official plugins are available:
 
-## Основные инструменты разработчика
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-<img align="left" alt="React" width="40px" src="https://github.com/AndrewMosh/AndrewMosh/blob/main/icons/react.png"/>
-<img align="left" alt="VS" width="40px" src="https://github.com/AndrewMosh/AndrewMosh/blob/main/icons/vs-code.png"/>
-<img align="left" alt="Git" width="40px" src="https://github.com/AndrewMosh/AndrewMosh/blob/main/icons/git.png"/>
-<img align="left" alt="GitHub" width="40px" src="https://github.com/AndrewMosh/AndrewMosh/blob/main/icons/github.png"/>
-<img align="left" alt="HTML5" width="40px" src="https://github.com/AndrewMosh/AndrewMosh/blob/main/icons/html5.png"/>
-<img align="left" alt="СSS3" width="40px" src="https://github.com/AndrewMosh/AndrewMosh/blob/main/icons/css3.png"/>
-<img align="left" alt="JS" width="40px" src="https://github.com/AndrewMosh/AndrewMosh/blob/main/icons/javascript.png"/>
-<img align="left" alt="JS" width="40px" src="https://github.com/AndrewMosh/AndrewMosh/blob/main/icons/redux-icon.svg"/>
-<br/>
+## Expanding the ESLint configuration
 
-## Интерфейс приложения
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-<img align="center" alt="not authorised" src="https://github.com/AndrewMosh/Final-project-exam-/blob/master/src/Components/assets/welik1.png">
-<img align="center" alt="authorised" src="https://github.com/AndrewMosh/Final-project-exam-/blob/master/src/Components/assets/welik2.png">
-<img align="center" alt="details" src="https://github.com/AndrewMosh/Final-project-exam-/blob/master/src/Components/assets/welik3.png">
+- Configure the top-level `parserOptions` property like this:
 
-<br/>
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-[Изображения были взяты на сайте](http://www.freepik.com)
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
